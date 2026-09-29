@@ -1,0 +1,449 @@
+[
+  {
+    "id": "a751384d",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T00:06:37.116471",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "816173a4",
+    "type": "RECOMMENDATION",
+    "timestamp": "2026-09-30T00:05:04.348170",
+    "input": {
+      "completion_rate": 0.85,
+      "average_accuracy": 0.9,
+      "average_mistakes": 1.2,
+      "average_hints": 0.4,
+      "easy_completion_rate": 1.0,
+      "medium_completion_rate": 0.9,
+      "hard_completion_rate": 0.65,
+      "recent_accuracy": 0.92,
+      "recent_error_rate": 0.06,
+      "average_moves_per_minute": 8.0
+    },
+    "output": {
+      "recommended_difficulty": "MEDIUM",
+      "recommended_reason": "Your recent accuracy and consistent completion demonstrate readiness for intermediate tactical puzzles.",
+      "confidence": 0.92,
+      "top_factors": [
+        "Important model factor: Medium mission mastery (90%)",
+        "Important model factor: Recent session precision (92%)",
+        "Important model factor: Controlled mistake rate (1.2 per game)"
+      ]
+    }
+  },
+  {
+    "id": "90d542a7",
+    "type": "HINT",
+    "timestamp": "2026-09-30T00:05:04.335808",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 2,
+      "elapsed_time": 300.0,
+      "previous_hints_used": 1,
+      "stuck_duration_seconds": 120.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (120s)",
+        "Important model factor: Prior hints utilized (1)"
+      ]
+    }
+  },
+  {
+    "id": "9311cc63",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T00:05:04.321261",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.88,
+      "average_solving_time": 320.0,
+      "recent_accuracy": 0.94,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 4,
+      "current_progress": 0.65,
+      "elapsed_time": 180.0
+    },
+    "output": {
+      "completion_probability": 1.0,
+      "predicted_completion": true,
+      "confidence": 1.0,
+      "top_factors": [
+        "Important model factor: Player current accuracy (94%)",
+        "Important model factor: Current puzzle progression (65% filled)",
+        "Important model factor: Recorded mistakes (1)"
+      ]
+    }
+  },
+  {
+    "id": "2211fac9",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T00:05:04.306517",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "c455c685",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T00:05:04.291675",
+    "input": {
+      "games_played": 15,
+      "completion_rate": 0.95,
+      "average_time": 250.0,
+      "average_score": 850.0,
+      "average_accuracy": 0.96,
+      "average_mistakes": 0.4,
+      "average_hints": 0.1,
+      "average_undos": 0.2,
+      "average_moves": 45.0,
+      "hard_completion_rate": 0.9,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 1.0,
+      "recent_accuracy": 0.98,
+      "recent_error_rate": 0.02,
+      "average_moves_per_minute": 10.5
+    },
+    "output": {
+      "skill_level": "EXPERT",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (95%)",
+          "Important model factor: Exceptional input accuracy (96%)",
+          "Important model factor: Demonstrated Hard difficulty competence",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "7669a93c",
+    "type": "RECOMMENDATION",
+    "timestamp": "2026-09-30T00:04:13.772133",
+    "input": {
+      "completion_rate": 0.85,
+      "average_accuracy": 0.9,
+      "average_mistakes": 1.2,
+      "average_hints": 0.4,
+      "easy_completion_rate": 1.0,
+      "medium_completion_rate": 0.9,
+      "hard_completion_rate": 0.65,
+      "recent_accuracy": 0.92,
+      "recent_error_rate": 0.06,
+      "average_moves_per_minute": 8.0
+    },
+    "output": {
+      "recommended_difficulty": "MEDIUM",
+      "recommended_reason": "Your recent accuracy and consistent completion demonstrate readiness for intermediate tactical puzzles.",
+      "confidence": 0.92,
+      "top_factors": [
+        "Important model factor: Medium mission mastery (90%)",
+        "Important model factor: Recent session precision (92%)",
+        "Important model factor: Controlled mistake rate (1.2 per game)"
+      ]
+    }
+  },
+  {
+    "id": "2774aece",
+    "type": "HINT",
+    "timestamp": "2026-09-30T00:04:13.754245",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 2,
+      "elapsed_time": 300.0,
+      "previous_hints_used": 1,
+      "stuck_duration_seconds": 120.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (120s)",
+        "Important model factor: Prior hints utilized (1)"
+      ]
+    }
+  },
+  {
+    "id": "0bbb3bdb",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T00:04:13.732611",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.88,
+      "average_solving_time": 320.0,
+      "recent_accuracy": 0.94,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 4,
+      "current_progress": 0.65,
+      "elapsed_time": 180.0
+    },
+    "output": {
+      "completion_probability": 1.0,
+      "predicted_completion": true,
+      "confidence": 1.0,
+      "top_factors": [
+        "Important model factor: Player current accuracy (94%)",
+        "Important model factor: Current puzzle progression (65% filled)",
+        "Important model factor: Recorded mistakes (1)"
+      ]
+    }
+  },
+  {
+    "id": "a325b967",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T00:04:12.852529",
+    "input": {
+      "games_played": 15,
+      "completion_rate": 0.95,
+      "average_time": 250.0,
+      "average_score": 850.0,
+      "average_accuracy": 0.96,
+      "average_mistakes": 0.4,
+      "average_hints": 0.1,
+      "average_undos": 0.2,
+      "average_moves": 45.0,
+      "hard_completion_rate": 0.9,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 1.0,
+      "recent_accuracy": 0.98,
+      "recent_error_rate": 0.02,
+      "average_moves_per_minute": 10.5
+    },
+    "output": {
+      "skill_level": "EXPERT",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (95%)",
+          "Important model factor: Exceptional input accuracy (96%)",
+          "Important model factor: Demonstrated Hard difficulty competence",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "9d8ab371",
+    "type": "RECOMMENDATION",
+    "timestamp": "2026-09-29T21:59:37.940287",
+    "input": {
+      "completion_rate": 0.85,
+      "average_accuracy": 0.9,
+      "average_mistakes": 1.2,
+      "average_hints": 0.4,
+      "easy_completion_rate": 1.0,
+      "medium_completion_rate": 0.9,
+      "hard_completion_rate": 0.65,
+      "recent_accuracy": 0.92,
+      "recent_error_rate": 0.06,
+      "average_moves_per_minute": 8.0
+    },
+    "output": {
+      "recommended_difficulty": "MEDIUM",
+      "recommended_reason": "Your recent accuracy and consistent completion demonstrate readiness for intermediate tactical puzzles.",
+      "confidence": 0.92,
+      "top_factors": [
+        "Important model factor: Medium mission mastery (90%)",
+        "Important model factor: Recent session precision (92%)",
+        "Important model factor: Controlled mistake rate (1.2 per game)"
+      ]
+    }
+  },
+  {
+    "id": "c575b774",
+    "type": "HINT",
+    "timestamp": "2026-09-29T21:59:37.920638",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 2,
+      "elapsed_time": 300.0,
+      "previous_hints_used": 1,
+      "stuck_duration_seconds": 120.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (120s)",
+        "Important model factor: Prior hints utilized (1)"
+      ]
+    }
+  },
+  {
+    "id": "88c7bff9",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-29T21:59:37.901069",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.88,
+      "average_solving_time": 320.0,
+      "recent_accuracy": 0.94,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 4,
+      "current_progress": 0.65,
+      "elapsed_time": 180.0
+    },
+    "output": {
+      "completion_probability": 1.0,
+      "predicted_completion": true,
+      "confidence": 1.0,
+      "top_factors": [
+        "Important model factor: Player current accuracy (94%)",
+        "Important model factor: Current puzzle progression (65% filled)",
+        "Important model factor: Recorded mistakes (1)"
+      ]
+    }
+  },
+  {
+    "id": "041c5801",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-29T21:59:37.877727",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.79,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "4e60b603",
+    "type": "SKILL",
+    "timestamp": "2026-09-29T21:59:37.838597",
+    "input": {
+      "games_played": 15,
+      "completion_rate": 0.95,
+      "average_time": 250.0,
+      "average_score": 850.0,
+      "average_accuracy": 0.96,
+      "average_mistakes": 0.4,
+      "average_hints": 0.1,
+      "average_undos": 0.2,
+      "average_moves": 45.0,
+      "hard_completion_rate": 0.9,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 1.0,
+      "recent_accuracy": 0.98,
+      "recent_error_rate": 0.02,
+      "average_moves_per_minute": 10.5
+    },
+    "output": {
+      "skill_level": "EXPERT",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (95%)",
+          "Important model factor: Exceptional input accuracy (96%)",
+          "Important model factor: Demonstrated Hard difficulty competence",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  }
+]

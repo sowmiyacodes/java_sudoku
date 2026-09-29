@@ -1,0 +1,73 @@
+{
+  "model_type": "hint_recommendation",
+  "algorithm": "Gradient Boosting",
+  "version": "v1.0",
+  "trained_at": "2026-09-29T21:57:55.226045",
+  "dataset_samples": 2500,
+  "features": [
+    "player_skill_num",
+    "difficulty_num",
+    "current_progress",
+    "mistakes_count",
+    "elapsed_time",
+    "previous_hints_used",
+    "stuck_duration_seconds",
+    "open_candidates_estimate"
+  ],
+  "classes": [
+    "CELL",
+    "COLUMN",
+    "NEXT_MOVE",
+    "REGION",
+    "ROW",
+    "TECHNIQUE"
+  ],
+  "model_comparison": {
+    "Logistic Regression": {
+      "val_accuracy": 0.496,
+      "val_f1_weighted": 0.4789,
+      "val_precision": 0.4757,
+      "val_recall": 0.496
+    },
+    "Decision Tree": {
+      "val_accuracy": 0.6293,
+      "val_f1_weighted": 0.6382,
+      "val_precision": 0.658,
+      "val_recall": 0.6293
+    },
+    "Random Forest": {
+      "val_accuracy": 0.6373,
+      "val_f1_weighted": 0.6411,
+      "val_precision": 0.6466,
+      "val_recall": 0.6373
+    },
+    "Gradient Boosting": {
+      "val_accuracy": 0.648,
+      "val_f1_weighted": 0.6536,
+      "val_precision": 0.6647,
+      "val_recall": 0.648
+    }
+  },
+  "validation_f1_weighted": 0.6536,
+  "test_metrics": {
+    "accuracy": 0.6027,
+    "precision_weighted": 0.6192,
+    "recall_weighted": 0.6027,
+    "f1_weighted": 0.6076
+  },
+  "feature_importances": {
+    "previous_hints_used": 0.2549,
+    "stuck_duration_seconds": 0.2219,
+    "current_progress": 0.1574,
+    "mistakes_count": 0.1104,
+    "difficulty_num": 0.0814,
+    "player_skill_num": 0.0672,
+    "elapsed_time": 0.0611,
+    "open_candidates_estimate": 0.0457
+  },
+  "artifacts": {
+    "model_path": "ml/models/hint_model.pkl",
+    "scaler_path": "ml/models/hint_scaler.pkl",
+    "label_encoder_path": "ml/models/hint_label_encoder.pkl"
+  }
+}

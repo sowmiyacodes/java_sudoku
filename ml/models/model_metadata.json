@@ -1,0 +1,127 @@
+{
+  "model_name": "Player Skill Classifier",
+  "version": "v1",
+  "algorithm": "Logistic Regression",
+  "model_file": "player_skill_logistic_regression_v1.pkl",
+  "dataset": "Grantm Sudoku Bank + IEEE Cloud Sudoku Human Gameplay + App Telemetry",
+  "dataset_version": "v1.0",
+  "features": [
+    "games_played",
+    "completion_rate",
+    "average_time",
+    "average_score",
+    "average_accuracy",
+    "average_mistakes",
+    "average_hints",
+    "average_undos",
+    "average_moves",
+    "hard_completion_rate",
+    "medium_completion_rate",
+    "easy_completion_rate",
+    "recent_accuracy",
+    "recent_error_rate",
+    "average_moves_per_minute"
+  ],
+  "feature_importance": {
+    "hard_completion_rate": 1.111,
+    "average_hints": 1.0011,
+    "average_moves_per_minute": 0.8553,
+    "completion_rate": 0.7947,
+    "average_mistakes": 0.7594,
+    "average_accuracy": 0.727,
+    "average_score": 0.7214,
+    "average_time": 0.5845,
+    "medium_completion_rate": 0.5505,
+    "average_moves": 0.5355,
+    "average_undos": 0.4051,
+    "recent_accuracy": 0.369,
+    "recent_error_rate": 0.3187,
+    "easy_completion_rate": 0.2714,
+    "games_played": 0.1271
+  },
+  "training_date": "2026-09-29T21:57:48.787765",
+  "train_size": 420,
+  "validation_size": 90,
+  "test_size": 90,
+  "random_state": 42,
+  "validation_metrics": {
+    "accuracy": 0.9667,
+    "precision": 0.9671,
+    "recall": 0.9667,
+    "f1_weighted": 0.9664,
+    "f1_macro": 0.9622
+  },
+  "test_metrics": {
+    "accuracy": 0.9556,
+    "precision": 0.9568,
+    "recall": 0.9556,
+    "f1_weighted": 0.9554,
+    "f1_macro": 0.9534
+  },
+  "all_model_comparisons": [
+    {
+      "model_name": "Logistic Regression",
+      "val_accuracy": 0.9667,
+      "val_precision": 0.9671,
+      "val_recall": 0.9667,
+      "val_f1": 0.9664,
+      "val_f1_macro": 0.9622
+    },
+    {
+      "model_name": "Decision Tree",
+      "val_accuracy": 0.9444,
+      "val_precision": 0.9453,
+      "val_recall": 0.9444,
+      "val_f1": 0.9445,
+      "val_f1_macro": 0.9444
+    },
+    {
+      "model_name": "Random Forest",
+      "val_accuracy": 0.9444,
+      "val_precision": 0.9462,
+      "val_recall": 0.9444,
+      "val_f1": 0.9442,
+      "val_f1_macro": 0.9442
+    },
+    {
+      "model_name": "Gradient Boosting",
+      "val_accuracy": 0.9667,
+      "val_precision": 0.9671,
+      "val_recall": 0.9667,
+      "val_f1": 0.9664,
+      "val_f1_macro": 0.9622
+    }
+  ],
+  "confusion_matrix": [
+    [
+      23,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      25,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      8,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      30
+    ]
+  ],
+  "classes": [
+    "ADVANCED",
+    "BEGINNER",
+    "EXPERT",
+    "INTERMEDIATE"
+  ]
+}

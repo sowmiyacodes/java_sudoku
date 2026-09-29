@@ -1,0 +1,75 @@
+{
+  "model_type": "puzzle_completion",
+  "algorithm": "Decision Tree",
+  "version": "v1.0",
+  "trained_at": "2026-09-29T21:57:53.300824",
+  "dataset_samples": 16385,
+  "features": [
+    "skill_level_numeric",
+    "difficulty_numeric",
+    "historical_completion_rate",
+    "average_solving_time",
+    "recent_accuracy",
+    "hints_used",
+    "mistakes_made",
+    "current_streak",
+    "current_progress",
+    "elapsed_time_ratio",
+    "puzzle_complexity_estimate"
+  ],
+  "classes": [
+    "ABANDONED_OR_FAILED",
+    "COMPLETED"
+  ],
+  "model_comparison": {
+    "Logistic Regression": {
+      "val_accuracy": 0.9992,
+      "val_f1_weighted": 0.9992,
+      "val_precision": 0.9992,
+      "val_recall": 0.9992
+    },
+    "Decision Tree": {
+      "val_accuracy": 1.0,
+      "val_f1_weighted": 1.0,
+      "val_precision": 1.0,
+      "val_recall": 1.0
+    },
+    "Random Forest": {
+      "val_accuracy": 1.0,
+      "val_f1_weighted": 1.0,
+      "val_precision": 1.0,
+      "val_recall": 1.0
+    },
+    "Gradient Boosting": {
+      "val_accuracy": 1.0,
+      "val_f1_weighted": 1.0,
+      "val_precision": 1.0,
+      "val_recall": 1.0
+    }
+  },
+  "validation_f1_weighted": 1.0,
+  "test_metrics": {
+    "accuracy": 1.0,
+    "precision_weighted": 1.0,
+    "recall_weighted": 1.0,
+    "f1_weighted": 1.0,
+    "roc_auc": 1.0
+  },
+  "feature_importances": {
+    "current_progress": 1.0,
+    "skill_level_numeric": 0.0,
+    "difficulty_numeric": 0.0,
+    "historical_completion_rate": 0.0,
+    "average_solving_time": 0.0,
+    "recent_accuracy": 0.0,
+    "hints_used": 0.0,
+    "mistakes_made": 0.0,
+    "current_streak": 0.0,
+    "elapsed_time_ratio": 0.0,
+    "puzzle_complexity_estimate": 0.0
+  },
+  "artifacts": {
+    "model_path": "ml/models/completion_model.pkl",
+    "scaler_path": "ml/models/completion_scaler.pkl"
+  }
+}

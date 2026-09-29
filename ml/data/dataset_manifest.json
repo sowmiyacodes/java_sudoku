@@ -1,0 +1,73 @@
+{
+  "manifest_version": "1.1.0",
+  "last_updated": "2026-09-29T21:57:46.393454",
+  "datasets": [
+    {
+      "id": "ds_human_ieee",
+      "name": "IEEE Cloud Sudoku Human Gameplay",
+      "source": "https://github.com/synnwang/sudoku_dataset_difficulty",
+      "type": "External Empirical Human Benchmark",
+      "path": "ml/data/raw/cloud_sudoku_human.csv",
+      "checksum": "908bb0d269e93e687e72ab92662a7a3c152fe2aff681f3db46c845227972141c",
+      "row_count": 344,
+      "columns": [
+        "Game No.",
+        "Sudoku Puzzle",
+        "D_TO",
+        "D_TR"
+      ],
+      "status": "VALIDATED"
+    },
+    {
+      "id": "ds_puzzles_benchmark",
+      "name": "Sudoku Exchange Puzzle Bank",
+      "source": "https://github.com/grantm/sudoku-exchange-puzzle-bank",
+      "type": "Sukaku Explainer Rated Benchmarks",
+      "path": "ml/data/raw/puzzles_benchmark.csv",
+      "checksum": "02d83b5c785a14360887852bf3bd94512f85c055c0bbe06723bf21835b7eae6e",
+      "row_count": 2400,
+      "columns": [
+        "hash",
+        "puzzle",
+        "rating",
+        "difficulty"
+      ],
+      "status": "VALIDATED"
+    },
+    {
+      "id": "ds_player_sessions",
+      "name": "Multi-Session Player Gameplay Telemetry",
+      "source": "Simulated Human Archetypes & Spring Boot Telemetry",
+      "type": "Player Behavioral Sessions",
+      "path": "ml/data/raw/player_gameplay_sessions.csv",
+      "checksum": "3ff8ba2440dbc7847ade9bccc417cd64bc82fb42889ff71b0903816ebd5d8827",
+      "row_count": 16385,
+      "columns": [
+        "game_id",
+        "player_id",
+        "difficulty",
+        "duration",
+        "moves",
+        "mistakes",
+        "hints",
+        "undos",
+        "accuracy",
+        "score",
+        "completion_status",
+        "timestamp"
+      ],
+      "status": "VALIDATED"
+    },
+    {
+      "id": "ds_processed_players",
+      "name": "Engineered Player Feature Matrix",
+      "source": "Feature Engineering Pipeline",
+      "type": "Processed Feature Table",
+      "path": "ml/data/processed/player_dataset.csv",
+      "checksum": "33a93849f5cc1b6d5230448a239e76ac55359ddf1031ac738d74274ba9fc49de",
+      "row_count": 600,
+      "feature_version": "v1.1",
+      "status": "PROCESSED"
+    }
+  ]
+}

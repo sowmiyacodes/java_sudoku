@@ -1,0 +1,32 @@
+                 ┌──────────────────────┐
+                 │ Public Sudoku Dataset│
+                 └──────────┬───────────┘
+                            ↓
+                    Data preprocessing
+                            ↓
+                    Feature engineering
+                            ↓
+              ┌─────────────┴─────────────┐
+              ↓                           ↓
+       Puzzle features              Gameplay features
+              ↓                           ↓
+              └─────────────┬─────────────┘
+                            ↓
+                   Train / Validation / Test
+                            ↓
+               ┌────────────┼────────────┐
+               ↓            ↓            ↓
+          Logistic RF    XGBoost    Gradient Boosting
+               └────────────┼────────────┘
+                            ↓
+                    Model comparison
+                            ↓
+                     Best model
+                            ↓
+                      Save model
+                            ↓
+                    Prediction API
+                            ↓
+                  Java Web Application
+                            ↓
+                Dashboard / Recommendations

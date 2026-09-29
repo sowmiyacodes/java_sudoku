@@ -1,0 +1,112 @@
+# =============================================================================
+# SUDOKU PROJECT — .gitignore
+# Full-stack: Spring Boot (Java/Maven) + React/Vite (TypeScript)
+# =============================================================================
+
+# =============================================================================
+# BACKEND — Java / Spring Boot / Maven
+# =============================================================================
+
+# Maven build output
+backend/target/
+backend/*.class
+
+# H2 / Database files (never commit DB data)
+backend/data/
+*.mv.db
+*.trace.db
+
+# Maven wrapper (optional — keep if you want portable builds)
+# !backend/mvnw
+# !backend/.mvn/
+
+# IDE: IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE: Eclipse / STS
+.classpath
+.project
+.settings/
+bin/
+
+# IDE: VS Code Java
+.factorypath
+
+# Spring Boot application logs
+*.log
+logs/
+
+# =============================================================================
+# FRONTEND — Node.js / React / Vite / TypeScript
+# =============================================================================
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+
+# Environment files (never commit secrets)
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# TypeScript build info
+frontend/*.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
+
+# Vite cache
+frontend/.cache/
+
+# =============================================================================
+# SYSTEM FILES
+# =============================================================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.nfs*
+
+# =============================================================================
+# MISC
+# =============================================================================
+
+# Editor backup files
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+
+# Sensitive config — never commit
+*.p12
+*.jks
+*.pem
+*.key
+*.cert
+
+# Python environments, bytecode, and test caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/

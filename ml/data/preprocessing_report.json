@@ -1,0 +1,35 @@
+{
+  "pipeline_version": "v1.1",
+  "dataset_version": "1.1.0",
+  "feature_version": "v1.1",
+  "timestamp": "2026-09-29T21:57:47.853285",
+  "raw_rows": 16385,
+  "total_merged_rows": 16385,
+  "duplicate_rows": 0,
+  "invalid_rows": 0,
+  "valid_session_rows": 16385,
+  "final_player_profiles": 600,
+  "features": [
+    "games_played",
+    "completion_rate",
+    "average_time",
+    "average_score",
+    "average_accuracy",
+    "average_mistakes",
+    "average_hints",
+    "average_undos",
+    "average_moves",
+    "hard_completion_rate",
+    "medium_completion_rate",
+    "easy_completion_rate",
+    "recent_accuracy",
+    "recent_error_rate",
+    "average_moves_per_minute"
+  ],
+  "class_distribution": {
+    "INTERMEDIATE": 212,
+    "BEGINNER": 168,
+    "ADVANCED": 162,
+    "EXPERT": 58
+  }
+}
