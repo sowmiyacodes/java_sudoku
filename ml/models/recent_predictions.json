@@ -1,5 +1,242 @@
 [
   {
+    "id": "0a86bd00",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T10:38:20.822259",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.95,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 2,
+      "current_progress": 0.6,
+      "elapsed_time": 240.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.40x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "e12904c2",
+    "type": "HINT",
+    "timestamp": "2026-09-30T10:38:20.754454",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 1,
+      "elapsed_time": 180.0,
+      "previous_hints_used": 0,
+      "stuck_duration_seconds": 45.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (45s)",
+        "Important model factor: Prior hints utilized (0)"
+      ]
+    }
+  },
+  {
+    "id": "449c557f",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T10:38:20.470441",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.79,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "b8131615",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T10:31:55.681650",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 3.0
+    },
+    "output": {
+      "completion_probability": 0.91,
+      "predicted_completion": true,
+      "confidence": 0.82,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.01x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c54264d7",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T10:31:50.861929",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.91,
+      "predicted_completion": true,
+      "confidence": 0.82,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "f9e77d3b",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T10:31:50.732611",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.88,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.87,
+      "predicted_completion": true,
+      "confidence": 0.74,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "57a5a1d4",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T10:31:36.097529",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.79,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "e511b19e",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T10:30:47.785966",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
     "id": "fbaf5f20",
     "type": "SKILL",
     "timestamp": "2026-09-30T10:17:39.151313",
@@ -5539,75 +5776,6 @@
         "Important model factor: Current puzzle progression (65% filled)",
         "Important model factor: Recorded mistakes (1)"
       ]
-    }
-  },
-  {
-    "id": "041c5801",
-    "type": "DIFFICULTY",
-    "timestamp": "2026-09-29T21:59:37.877727",
-    "input": {
-      "clues": 30.0
-    },
-    "output": {
-      "difficulty": "EASY",
-      "confidence": 0.79,
-      "model_version": "v1.0",
-      "extracted_features": {
-        "clue_count": 30.0,
-        "empty_cell_count": 51.0,
-        "clue_density": 0.3704,
-        "candidate_count": 153.0,
-        "min_candidates_per_cell": 1.0,
-        "max_candidates_per_cell": 6.0,
-        "avg_candidates_per_cell": 3.0,
-        "single_candidate_cells": 4.0,
-        "box_clue_variance": 2.0,
-        "row_clue_variance": 0.2222,
-        "col_clue_variance": 2.6667,
-        "symmetry_score": 1.0,
-        "branching_factor_estimate": 17.0
-      },
-      "top_factors": [
-        "Important model factor: Clue count is 30 givens (51 empty cells)",
-        "Important model factor: Branching complexity index of 17.00",
-        "Important model factor: Available naked singles (4)"
-      ]
-    }
-  },
-  {
-    "id": "4e60b603",
-    "type": "SKILL",
-    "timestamp": "2026-09-29T21:59:37.838597",
-    "input": {
-      "games_played": 15,
-      "completion_rate": 0.95,
-      "average_time": 250.0,
-      "average_score": 850.0,
-      "average_accuracy": 0.96,
-      "average_mistakes": 0.4,
-      "average_hints": 0.1,
-      "average_undos": 0.2,
-      "average_moves": 45.0,
-      "hard_completion_rate": 0.9,
-      "medium_completion_rate": 1.0,
-      "easy_completion_rate": 1.0,
-      "recent_accuracy": 0.98,
-      "recent_error_rate": 0.02,
-      "average_moves_per_minute": 10.5
-    },
-    "output": {
-      "skill_level": "EXPERT",
-      "confidence": 1.0,
-      "model_version": "v1",
-      "explanation": {
-        "top_factors": [
-          "Important model factor: High solve consistency (95%)",
-          "Important model factor: Exceptional input accuracy (96%)",
-          "Important model factor: Demonstrated Hard difficulty competence",
-          "Important model factor: Independent solving with minimal hint usage"
-        ],
-        "feature_contributions": null
-      }
     }
   }
 ]

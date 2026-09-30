@@ -39,7 +39,7 @@
     "easy_completion_rate": 0.2714,
     "games_played": 0.1271
   },
-  "training_date": "2026-09-30T10:27:11.381037",
+  "training_date": "2026-09-30T11:54:03.780644",
   "train_size": 420,
   "validation_size": 90,
   "test_size": 90,
@@ -123,5 +123,44 @@
     "BEGINNER",
     "EXPERT",
     "INTERMEDIATE"
-  ]
+  ],
+  "classification_report": {
+    "ADVANCED": {
+      "precision": 0.9583333333333334,
+      "recall": 0.9583333333333334,
+      "f1-score": 0.9583333333333334,
+      "support": 24.0
+    },
+    "BEGINNER": {
+      "precision": 0.9259259259259259,
+      "recall": 1.0,
+      "f1-score": 0.9615384615384616,
+      "support": 25.0
+    },
+    "EXPERT": {
+      "precision": 1.0,
+      "recall": 0.8888888888888888,
+      "f1-score": 0.9411764705882353,
+      "support": 9.0
+    },
+    "INTERMEDIATE": {
+      "precision": 0.967741935483871,
+      "recall": 0.9375,
+      "f1-score": 0.9523809523809523,
+      "support": 32.0
+    },
+    "accuracy": 0.9555555555555556,
+    "macro avg": {
+      "precision": 0.9630002986857826,
+      "recall": 0.9461805555555556,
+      "f1-score": 0.9533573044602457,
+      "support": 90.0
+    },
+    "weighted avg": {
+      "precision": 0.956843223151467,
+      "recall": 0.9555555555555556,
+      "f1-score": 0.9553915583327348,
+      "support": 90.0
+    }
+  }
 }

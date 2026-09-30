@@ -7,6 +7,7 @@ import {
   History,
   Activity,
   CheckCircle2,
+  AlertCircle,
   RefreshCw,
   Play,
   Loader2,
@@ -29,6 +30,7 @@ export const AdminMLDashboardPage: React.FC = () => {
   const [selectedDataset, setSelectedDataset] = useState('combined');
   const [isTraining, setIsTraining] = useState(false);
   const [trainingResult, setTrainingResult] = useState<any>(null);
+  const [trainingError, setTrainingError] = useState<string | null>(null);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
 
   const fetchAllData = async () => {
@@ -60,14 +62,23 @@ export const AdminMLDashboardPage: React.FC = () => {
   const handleStartTraining = async () => {
     setIsTraining(true);
     setTrainingResult(null);
+    setTrainingError(null);
     setActionMessage(null);
     try {
       const res = await AdminMlApi.trainModel(selectedModelType);
       setTrainingResult(res);
+      if (res.status !== 'success') {
+        const message = res.message || 'The ML service did not return a successful training result.';
+        setTrainingError(message);
+        setActionMessage(`Training failed: ${message}`);
+        return;
+      }
       setActionMessage(`Training completed for ${selectedModelType}! Model updated in registry.`);
       fetchAllData();
     } catch (err: any) {
-      setActionMessage(`Training failed: ${err.message || 'Service unavailable'}`);
+      const message = err.message || 'Service unavailable';
+      setTrainingError(message);
+      setActionMessage(`Training failed: ${message}`);
     } finally {
       setIsTraining(false);
     }
@@ -82,6 +93,14 @@ export const AdminMLDashboardPage: React.FC = () => {
       setActionMessage(`Activation error: ${err.message}`);
     }
   };
+
+  const modelComparisonRows = Array.isArray(trainingResult?.model_comparison)
+    ? trainingResult.model_comparison
+    : Object.entries(trainingResult?.model_comparison ?? {}).map(([algorithm, metrics]: [string, any]) => ({ algorithm, ...metrics }));
+  const classificationRows = Object.entries(trainingResult?.classification_report ?? {})
+    .filter(([, metrics]) => typeof metrics === 'object' && metrics !== null)
+    .map(([label, metrics]: [string, any]) => ({ label, ...metrics }));
+  const isActionError = /failed|error/i.test(actionMessage ?? '');
 
   if (isLoading && !overview) {
     return (
@@ -127,9 +146,9 @@ export const AdminMLDashboardPage: React.FC = () => {
 
       {/* Action Notification Alert */}
       {actionMessage && (
-        <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs flex items-center justify-between shadow-sm">
+        <div className={`p-3.5 rounded-xl border text-xs flex items-center justify-between shadow-sm ${isActionError ? 'bg-rose-50 border-rose-200 text-rose-900' : 'bg-blue-50 border-blue-200 text-blue-900'}`}>
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={16} className="text-blue-600 shrink-0" />
+            {isActionError ? <AlertCircle size={16} className="text-rose-600 shrink-0" /> : <CheckCircle2 size={16} className="text-blue-600 shrink-0" />}
             <span>{actionMessage}</span>
           </div>
           <button onClick={() => setActionMessage(null)} className="text-blue-500 hover:text-blue-800 font-bold ml-4">
@@ -424,6 +443,16 @@ export const AdminMLDashboardPage: React.FC = () => {
                 <p className="text-xs font-bold text-slate-700">Executing 4-way Model Evaluation...</p>
                 <p className="text-[11px] text-slate-400 mt-1">Comparing Logistic Regression, Decision Tree, Random Forest, Gradient Boosting</p>
               </div>
+            ) : trainingError ? (
+              <div role="alert" className="space-y-3 rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900">
+                <p className="font-bold">Training did not complete</p>
+                <p>{trainingError}</p>
+                {trainingResult && (
+                  <pre className="overflow-x-auto rounded-md border border-rose-200 bg-white p-3 font-mono text-xs text-slate-700">
+                    {JSON.stringify(trainingResult, null, 2)}
+                  </pre>
+                )}
+              </div>
             ) : trainingResult ? (
               <div className="space-y-4">
                 <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs">
@@ -440,32 +469,108 @@ export const AdminMLDashboardPage: React.FC = () => {
                   <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                     <span className="text-[10px] font-bold uppercase text-slate-500">Test Accuracy</span>
                     <p className="text-base font-black text-emerald-700 mt-0.5">
-                      {trainingResult.metrics?.accuracy ? `${(trainingResult.metrics.accuracy * 100).toFixed(1)}%` : 'N/A'}
+                      {trainingResult.metrics?.accuracy != null ? `${(trainingResult.metrics.accuracy * 100).toFixed(1)}%` : 'N/A'}
                     </p>
                   </div>
                   <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                     <span className="text-[10px] font-bold uppercase text-slate-500">Weighted F1</span>
                     <p className="text-base font-black text-indigo-700 mt-0.5">
-                      {trainingResult.metrics?.f1_weighted ? `${(trainingResult.metrics.f1_weighted * 100).toFixed(1)}%` : 'N/A'}
+                      {trainingResult.metrics?.f1_weighted != null ? `${(trainingResult.metrics.f1_weighted * 100).toFixed(1)}%` : 'N/A'}
                     </p>
                   </div>
                   <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                     <span className="text-[10px] font-bold uppercase text-slate-500">Weighted Precision</span>
                     <p className="text-base font-black text-blue-700 mt-0.5">
-                      {trainingResult.metrics?.precision_weighted ? `${(trainingResult.metrics.precision_weighted * 100).toFixed(1)}%` : 'N/A'}
+                      {(trainingResult.metrics?.precision_weighted ?? trainingResult.metrics?.precision) != null ? `${((trainingResult.metrics.precision_weighted ?? trainingResult.metrics.precision) * 100).toFixed(1)}%` : 'N/A'}
                     </p>
                   </div>
                   <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
                     <span className="text-[10px] font-bold uppercase text-slate-500">Weighted Recall</span>
                     <p className="text-base font-black text-slate-700 mt-0.5">
-                      {trainingResult.metrics?.recall_weighted ? `${(trainingResult.metrics.recall_weighted * 100).toFixed(1)}%` : 'N/A'}
+                      {(trainingResult.metrics?.recall_weighted ?? trainingResult.metrics?.recall) != null ? `${((trainingResult.metrics.recall_weighted ?? trainingResult.metrics.recall) * 100).toFixed(1)}%` : 'N/A'}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 font-mono text-[11px] text-slate-700 overflow-x-auto">
-                  <pre>{JSON.stringify(trainingResult, null, 2)}</pre>
-                </div>
+                {(trainingResult.dataset_samples || trainingResult.test_size) && (
+                  <p className="text-xs text-slate-500">
+                    Evaluation set: {trainingResult.test_size ?? 'N/A'} records
+                    {trainingResult.dataset_samples ? ` · Dataset: ${trainingResult.dataset_samples.toLocaleString()} records` : ''}
+                    {trainingResult.trained_at ? ` · Trained ${new Date(trainingResult.trained_at).toLocaleString()}` : ''}
+                  </p>
+                )}
+
+                {modelComparisonRows.length > 0 && (
+                  <section className="overflow-hidden rounded-lg border border-slate-200">
+                    <h4 className="border-b border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-800">Validation comparison</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[480px] text-left text-xs">
+                        <thead><tr className="border-b border-slate-100 text-[10px] uppercase text-slate-500">
+                          <th className="px-3 py-2">Candidate algorithm</th><th className="px-3 py-2 text-right">Accuracy</th><th className="px-3 py-2 text-right">Weighted F1</th><th className="px-3 py-2 text-right">Precision</th><th className="px-3 py-2 text-right">Recall</th>
+                        </tr></thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {modelComparisonRows.map((row: any) => (
+                            <tr key={row.model_name ?? row.algorithm}>
+                              <td className="px-3 py-2 font-semibold text-slate-800">{row.model_name ?? row.algorithm}</td>
+                              <td className="px-3 py-2 text-right font-mono">{((row.val_accuracy ?? 0) * 100).toFixed(1)}%</td>
+                              <td className="px-3 py-2 text-right font-mono">{((row.val_f1_weighted ?? row.val_f1 ?? 0) * 100).toFixed(1)}%</td>
+                              <td className="px-3 py-2 text-right font-mono">{((row.val_precision ?? 0) * 100).toFixed(1)}%</td>
+                              <td className="px-3 py-2 text-right font-mono">{((row.val_recall ?? 0) * 100).toFixed(1)}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                )}
+
+                {classificationRows.length > 0 && (
+                  <section className="overflow-hidden rounded-lg border border-slate-200">
+                    <h4 className="border-b border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-800">Per-class test report</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[420px] text-left text-xs">
+                        <thead><tr className="border-b border-slate-100 text-[10px] uppercase text-slate-500">
+                          <th className="px-3 py-2">Class</th><th className="px-3 py-2 text-right">Precision</th><th className="px-3 py-2 text-right">Recall</th><th className="px-3 py-2 text-right">F1</th><th className="px-3 py-2 text-right">Support</th>
+                        </tr></thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {classificationRows.map((row: any) => (
+                            <tr key={row.label}>
+                              <td className="px-3 py-2 font-semibold text-slate-800">{row.label.replaceAll('_', ' ')}</td>
+                              <td className="px-3 py-2 text-right font-mono">{row.precision != null ? `${(row.precision * 100).toFixed(1)}%` : '—'}</td>
+                              <td className="px-3 py-2 text-right font-mono">{row.recall != null ? `${(row.recall * 100).toFixed(1)}%` : '—'}</td>
+                              <td className="px-3 py-2 text-right font-mono">{row['f1-score'] != null ? `${(row['f1-score'] * 100).toFixed(1)}%` : '—'}</td>
+                              <td className="px-3 py-2 text-right font-mono">{row.support ?? '—'}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                )}
+
+                {trainingResult.confusion_matrix?.matrix?.length > 0 && (
+                  <section className="overflow-hidden rounded-lg border border-slate-200">
+                    <h4 className="border-b border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-800">Confusion matrix</h4>
+                    <div className="overflow-x-auto p-3">
+                      <table className="w-full text-center text-xs">
+                        <thead><tr><th className="p-2 text-left text-slate-500">Actual / predicted</th>{trainingResult.confusion_matrix.labels.map((label: string) => <th key={label} className="p-2 font-semibold text-slate-700">{label}</th>)}</tr></thead>
+                        <tbody>
+                          {trainingResult.confusion_matrix.matrix.map((row: number[], rowIndex: number) => (
+                            <tr key={trainingResult.confusion_matrix.labels[rowIndex]} className="border-t border-slate-100">
+                              <th className="p-2 text-left font-semibold text-slate-700">{trainingResult.confusion_matrix.labels[rowIndex]}</th>
+                              {row.map((value, columnIndex) => <td key={trainingResult.confusion_matrix.labels[columnIndex]} className={`p-2 font-mono ${rowIndex === columnIndex ? 'bg-emerald-50 font-bold text-emerald-800' : 'text-slate-600'}`}>{value}</td>)}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                )}
+
+                <details className="rounded-lg border border-slate-200 bg-slate-50">
+                  <summary className="cursor-pointer px-3 py-2 text-xs font-semibold text-slate-700">View raw training response</summary>
+                  <pre className="max-h-72 overflow-auto border-t border-slate-200 p-3 font-mono text-[11px] text-slate-700">{JSON.stringify(trainingResult, null, 2)}</pre>
+                </details>
               </div>
             ) : (
               <div className="p-12 text-center text-xs text-slate-400 border border-dashed border-slate-200 rounded-xl">

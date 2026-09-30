@@ -522,40 +522,76 @@ def predict_recommendation(request: RecommendationPredictionRequest):
 
 # ==================== TRAINING ENDPOINTS ====================
 
+def build_training_response(model_key: str, result: Dict[str, Any]) -> Dict[str, Any]:
+    confusion_files = {
+        "player_skill": "confusion_matrix.json",
+        "puzzle_difficulty": "difficulty_confusion_matrix.json",
+        "puzzle_completion": "completion_confusion_matrix.json",
+        "hint_recommendation": "hint_confusion_matrix.json",
+        "personalized_recommendation": "recommendation_confusion_matrix.json",
+    }
+    confusion_matrix = None
+    confusion_path = os.path.join(MODELS_DIR, confusion_files[model_key])
+    if os.path.exists(confusion_path):
+        with open(confusion_path, "r", encoding="utf-8") as matrix_file:
+            confusion_data = json.load(matrix_file)
+        confusion_matrix = {
+            "labels": confusion_data.get("classes", confusion_data.get("labels", [])),
+            "matrix": confusion_data.get("matrix", []),
+        }
+
+    return {
+        "status": "success",
+        "model": model_key,
+        "algorithm": result.get("algorithm"),
+        "metrics": result.get("test_metrics", {}),
+        "validation_metrics": result.get("validation_metrics", {}),
+        "model_comparison": result.get("all_model_comparisons", result.get("model_comparison", {})),
+        "confusion_matrix": confusion_matrix,
+        "classification_report": result.get("classification_report"),
+        "feature_importance": result.get("feature_importance", result.get("feature_importances", {})),
+        "dataset_samples": result.get("dataset_samples"),
+        "train_size": result.get("train_size"),
+        "validation_size": result.get("validation_size"),
+        "test_size": result.get("test_size"),
+        "trained_at": result.get("training_date", result.get("trained_at")),
+        "artifacts": result.get("artifacts", {}),
+    }
+
 @app.post("/train/skill")
 def trigger_train_skill():
     res = train_skill()
     load_all_artifacts()
     register_model_run("player_skill", res["algorithm"], "v1.1", "1.1.0", "v1.1", res["test_metrics"], res.get("model_comparison", {}), res.get("artifacts", {}))
-    return {"status": "success", "model": "player_skill", "algorithm": res["algorithm"], "metrics": res["test_metrics"]}
+    return build_training_response("player_skill", res)
 
 @app.post("/train/difficulty")
 def trigger_train_difficulty():
     res = train_difficulty()
     load_all_artifacts()
     register_model_run("puzzle_difficulty", res["algorithm"], "v1.0", "1.1.0", "v1.0", res["test_metrics"], res.get("model_comparison", {}), res.get("artifacts", {}))
-    return {"status": "success", "model": "puzzle_difficulty", "algorithm": res["algorithm"], "metrics": res["test_metrics"]}
+    return build_training_response("puzzle_difficulty", res)
 
 @app.post("/train/completion")
 def trigger_train_completion():
     res = train_completion()
     load_all_artifacts()
     register_model_run("puzzle_completion", res["algorithm"], "v1.0", "1.1.0", "v1.0", res["test_metrics"], res.get("model_comparison", {}), res.get("artifacts", {}))
-    return {"status": "success", "model": "puzzle_completion", "algorithm": res["algorithm"], "metrics": res["test_metrics"]}
+    return build_training_response("puzzle_completion", res)
 
 @app.post("/train/hint")
 def trigger_train_hint():
     res = train_hint()
     load_all_artifacts()
     register_model_run("hint_recommendation", res["algorithm"], "v1.0", "1.1.0", "v1.0", res["test_metrics"], res.get("model_comparison", {}), res.get("artifacts", {}))
-    return {"status": "success", "model": "hint_recommendation", "algorithm": res["algorithm"], "metrics": res["test_metrics"]}
+    return build_training_response("hint_recommendation", res)
 
 @app.post("/train/recommendation")
 def trigger_train_recommendation():
     res = train_recommendation()
     load_all_artifacts()
     register_model_run("personalized_recommendation", res["algorithm"], "v1.0", "1.1.0", "v1.0", res["test_metrics"], res.get("model_comparison", {}), res.get("artifacts", {}))
-    return {"status": "success", "model": "personalized_recommendation", "algorithm": res["algorithm"], "metrics": res["test_metrics"]}
+    return build_training_response("personalized_recommendation", res)
 
 # ==================== REGISTRY & EXPERIMENT ENDPOINTS ====================
 

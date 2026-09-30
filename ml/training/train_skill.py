@@ -230,7 +230,14 @@ def train_and_evaluate(random_state=42):
         },
         "all_model_comparisons": results,
         "confusion_matrix": conf_mat.tolist(),
-        "classes": target_names
+        "classes": target_names,
+        "classification_report": classification_report(
+            y_test,
+            y_test_pred,
+            target_names=target_names,
+            output_dict=True,
+            zero_division=0
+        )
     }
 
     metadata_path = os.path.join(MODELS_DIR, "model_metadata.json")

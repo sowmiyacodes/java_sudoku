@@ -25,6 +25,7 @@ public class MLPredictionService {
     private static final Logger log = LoggerFactory.getLogger(MLPredictionService.class);
 
     private final RestTemplate restTemplate;
+    private final RestTemplate trainingRestTemplate;
     private final MLPredictionLogRepository logRepository;
     private final ObjectMapper objectMapper;
 
@@ -40,6 +41,10 @@ public class MLPredictionService {
                 .setConnectTimeout(Duration.ofMillis(1500))
                 .setReadTimeout(Duration.ofMillis(2500))
                 .build();
+        this.trainingRestTemplate = restTemplateBuilder
+            .setConnectTimeout(Duration.ofMillis(1500))
+            .setReadTimeout(Duration.ofMinutes(10))
+            .build();
         this.logRepository = logRepository;
         this.objectMapper = objectMapper;
     }
@@ -247,7 +252,7 @@ public class MLPredictionService {
         HttpEntity<String> request = new HttpEntity<>("{}", headers);
 
         try {
-            ResponseEntity<Map> response = restTemplate.postForEntity(endpoint, request, Map.class);
+            ResponseEntity<Map> response = trainingRestTemplate.postForEntity(endpoint, request, Map.class);
             return response.getBody() != null ? (Map<String, Object>) response.getBody() : Map.of("status", "error");
         } catch (Exception ex) {
             log.error("Failed to trigger training for model {}: {}", modelType, ex.getMessage());
