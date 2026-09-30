@@ -6,9 +6,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import com.sudoku.repository.UserRepository;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -16,6 +18,9 @@ public class AdminAnalyticsControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+        @Autowired
+        private UserRepository userRepository;
 
     @Test
     public void testGetOverviewStats() throws Exception {
@@ -37,6 +42,21 @@ public class AdminAnalyticsControllerTest {
     public void testGetPlayers() throws Exception {
         mockMvc.perform(get("/api/admin/players"))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testPlayerDetailsRequiresAdminAndReturnsStatisticsAndMlData() throws Exception {
+        Long adminId = userRepository.findByUsernameIgnoreCase("admin").orElseThrow().getId();
+
+        mockMvc.perform(get("/api/admin/players/{id}/details", adminId))
+                .andExpect(status().isForbidden());
+
+        mockMvc.perform(get("/api/admin/players/{id}/details", adminId).with(user("admin")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.profile.username").value("admin"))
+                .andExpect(jsonPath("$.recommendation.skillLevel").exists())
+                .andExpect(jsonPath("$.recommendation.mlServiceAvailable").exists())
+                .andExpect(jsonPath("$.difficultyPerformance.length()").value(3));
     }
 
     @Test

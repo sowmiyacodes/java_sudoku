@@ -53,7 +53,7 @@ public class RecommendationService {
         SkillPredictionRequestDto payload = statisticsService.buildPredictionPayload(stats);
         SkillPredictionResponseDto prediction = mlPredictionService.predictSkill(userId, payload);
 
-        boolean mlAvailable = !"offline-rule-heuristic".equalsIgnoreCase(prediction.modelVersion());
+        boolean mlAvailable = isMlServiceAvailable(prediction.modelVersion());
 
         // Recommendation Logic
         String skill = prediction.skillLevel();
@@ -147,9 +147,17 @@ public class RecommendationService {
                         r.getRecommendedDifficulty(),
                         r.getReason(),
                         r.getModelVersion(),
-                        List.of("Historical recommendation profile"),
-                        true
+                        List.of(),
+                        isMlServiceAvailable(r.getModelVersion())
                 ))
                 .orElseGet(() -> generateRecommendation(userId));
+    }
+
+    private boolean isMlServiceAvailable(String modelVersion) {
+        if (modelVersion == null) {
+            return false;
+        }
+        String normalizedVersion = modelVersion.toLowerCase(java.util.Locale.ROOT);
+        return !normalizedVersion.contains("fallback") && !normalizedVersion.contains("heuristic");
     }
 }

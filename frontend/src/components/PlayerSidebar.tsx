@@ -20,11 +20,13 @@ import {
   Activity,
   Cpu,
   Sliders
+  ,UserRound
 } from 'lucide-react';
 import { useAuth } from '../context/useAuth';
 
 export type DashboardView =
   | 'DASHBOARD'
+  | 'PLAYER_DASHBOARD'
   | 'PLAYERS'
   | 'PUZZLES'
   | 'GAMES'
@@ -218,6 +220,88 @@ export const PlayerSidebar: React.FC<PlayerSidebarProps> = ({
         >
           <LogOut size={14} />
           <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+  );
+};
+
+interface PlayerWorkspaceSidebarProps {
+  currentView: DashboardView;
+  onNavigate: (view: DashboardView) => void;
+  onPlaySudoku: () => void;
+  onLogout: () => void;
+}
+
+export const PlayerWorkspaceSidebar: React.FC<PlayerWorkspaceSidebarProps> = ({
+  currentView,
+  onNavigate,
+  onPlaySudoku,
+  onLogout
+}) => {
+  const { user } = useAuth();
+  const playerNav = [
+    { id: 'PLAYER_DASHBOARD' as DashboardView, label: 'Overview', icon: LayoutDashboard },
+    { id: 'STATISTICS' as DashboardView, label: 'Statistics', icon: BarChart3 },
+    { id: 'GAME_HISTORY' as DashboardView, label: 'Game history', icon: History },
+    { id: 'MULTIPLAYER' as DashboardView, label: 'Multiplayer', icon: Swords },
+    { id: 'PROFILE' as DashboardView, label: 'My profile', icon: UserRound },
+  ];
+
+  return (
+    <aside className="z-20 flex w-full shrink-0 flex-col justify-between border-b border-slate-800 bg-slate-950 px-4 py-4 text-slate-100 md:min-h-screen md:w-64 md:border-b-0 md:border-r md:px-4 md:py-5">
+      <div className="space-y-5">
+        <div className="flex items-center gap-3 rounded-lg border border-slate-800 bg-slate-900 px-3 py-3">
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-cyan-400 text-sm font-black text-slate-950">
+            {user?.displayName?.charAt(0).toUpperCase() || 'P'}
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-bold text-white">{user?.displayName || 'Player'}</p>
+            <p className="truncate font-mono text-xs text-cyan-300">@{user?.username || 'pilot'}</p>
+          </div>
+        </div>
+
+        <nav aria-label="Player dashboard navigation" className="space-y-1">
+          <p className="px-3 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">Your workspace</p>
+          {playerNav.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentView === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => onNavigate(item.id)}
+                aria-current={isActive ? 'page' : undefined}
+                className={`flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-cyan-400 text-slate-950'
+                    : 'text-slate-300 hover:bg-slate-900 hover:text-white'
+                }`}
+              >
+                <span className="flex items-center gap-3"><Icon size={17} /><span>{item.label}</span></span>
+                {isActive && <ChevronRight size={15} />}
+              </button>
+            );
+          })}
+        </nav>
+      </div>
+
+      <div className="mt-5 flex gap-2 border-t border-slate-800 pt-4 md:block md:space-y-2">
+        <button
+          type="button"
+          onClick={onPlaySudoku}
+          className="flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md bg-cyan-400 px-3 py-2 text-sm font-bold text-slate-950 transition-colors hover:bg-cyan-300 md:w-full"
+        >
+          <PlayCircle size={16} />
+          <span>Play Sudoku</span>
+        </button>
+        <button
+          type="button"
+          onClick={onLogout}
+          className="flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-400 transition-colors hover:bg-rose-950/50 hover:text-rose-200 md:w-full"
+        >
+          <LogOut size={15} />
+          <span>Sign out</span>
         </button>
       </div>
     </aside>

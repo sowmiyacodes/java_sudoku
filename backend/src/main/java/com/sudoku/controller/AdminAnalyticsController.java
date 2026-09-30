@@ -1,11 +1,20 @@
 package com.sudoku.controller;
 
+import com.sudoku.dto.AdminPlayerDetailsDto;
+import com.sudoku.dto.DifficultyPerformanceDto;
+import com.sudoku.dto.PlayerProfileDto;
+import com.sudoku.dto.RecommendationResponseDto;
 import com.sudoku.model.*;
 import com.sudoku.repository.*;
 import com.sudoku.service.AuditLogService;
 import com.sudoku.service.MLPredictionService;
+import com.sudoku.service.PlayerStatisticsService;
+import com.sudoku.service.RecommendationService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,8 +30,11 @@ public class AdminAnalyticsController {
     private final MLPredictionLogRepository predictionLogRepository;
     private final HintHistoryRepository hintHistoryRepository;
     private final PlayerStatisticsRepository playerStatisticsRepository;
+    private final RecommendationRepository recommendationRepository;
     private final MLPredictionService mlService;
     private final AuditLogService auditLogService;
+    private final PlayerStatisticsService playerStatisticsService;
+    private final RecommendationService recommendationService;
 
     public AdminAnalyticsController(
             UserRepository userRepository,
@@ -32,8 +44,11 @@ public class AdminAnalyticsController {
             MLPredictionLogRepository predictionLogRepository,
             HintHistoryRepository hintHistoryRepository,
             PlayerStatisticsRepository playerStatisticsRepository,
+            RecommendationRepository recommendationRepository,
             MLPredictionService mlService,
-            AuditLogService auditLogService) {
+            AuditLogService auditLogService,
+            PlayerStatisticsService playerStatisticsService,
+            RecommendationService recommendationService) {
         this.userRepository = userRepository;
         this.gameRepository = gameRepository;
         this.puzzleRepository = puzzleRepository;
@@ -41,8 +56,11 @@ public class AdminAnalyticsController {
         this.predictionLogRepository = predictionLogRepository;
         this.hintHistoryRepository = hintHistoryRepository;
         this.playerStatisticsRepository = playerStatisticsRepository;
+        this.recommendationRepository = recommendationRepository;
         this.mlService = mlService;
         this.auditLogService = auditLogService;
+        this.playerStatisticsService = playerStatisticsService;
+        this.recommendationService = recommendationService;
     }
 
     @GetMapping("/analytics/overview")
@@ -139,8 +157,11 @@ public class AdminAnalyticsController {
             map.put("email", user.getEmail());
             map.put("gamesCount", gamesCount);
             map.put("winRate", Math.round(winRate * 10.0) / 10.0);
-            map.put("accuracy", 91.2);
-            map.put("skill", "INTERMEDIATE");
+                map.put("accuracy", statsOpt.map(stats -> round(stats.getAverageAccuracy() * 100.0, 1)).orElse(0.0));
+                map.put("skill", recommendationRepository.findTopByUserIdOrderByCreatedAtDesc(user.getId())
+                    .map(Recommendation::getSkillLevel)
+                    .filter(Objects::nonNull)
+                    .orElse("NOT ASSESSED"));
             map.put("joined", user.getCreatedAt());
             map.put("active", user.isActive());
             result.add(map);
@@ -148,6 +169,47 @@ public class AdminAnalyticsController {
 
         return ResponseEntity.ok(result);
     }
+
+        @GetMapping("/players/{id}/details")
+        public ResponseEntity<AdminPlayerDetailsDto> getPlayerDetails(
+            @PathVariable Long id,
+            Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()
+            || !"admin".equalsIgnoreCase(authentication.getName())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Administrator access required");
+        }
+
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player not found"));
+        PlayerStatistics stats = playerStatisticsService.calculateAndSaveStatistics(user.getId());
+        RecommendationResponseDto recommendation = recommendationService.getLatestRecommendation(user.getId());
+        List<DifficultyPerformanceDto> difficultyPerformance = playerStatisticsService.getDifficultyPerformance(user.getId());
+        int totalMistakes = gameRepository.findByUserIdOrderByCreatedAtDesc(user.getId()).stream()
+            .mapToInt(Game::getMistakes)
+            .sum();
+
+        PlayerProfileDto profile = new PlayerProfileDto(
+            user.getId(), user.getUsername(), user.getDisplayName(), user.getEmail(), user.getCreatedAt(),
+            stats.getGamesPlayed(), stats.getGamesCompleted(), stats.getGamesAbandoned(), stats.getCompletionRate(),
+            stats.getAverageTime(), stats.getBestTime(), stats.getAverageAccuracy(), totalMistakes,
+            stats.getAverageMistakes(), stats.getAverageHints(), stats.getAverageUndos(), stats.getAverageScore(),
+            stats.getCurrentStreak(), stats.getBestStreak(), recommendation.skillLevel(), recommendation.confidence(),
+            recommendation.recommendedDifficulty(), recommendation.reason());
+
+        auditLogService.logAction(
+            authentication.getName(),
+            "VIEW_PLAYER_DETAILS",
+            "PLAYER",
+            String.valueOf(user.getId()),
+            "Viewed statistics and ML insights for " + user.getUsername());
+
+        return ResponseEntity.ok(new AdminPlayerDetailsDto(profile, recommendation, difficultyPerformance));
+        }
+
+        private double round(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+        }
 
     @PutMapping("/players/{id}/status")
     public ResponseEntity<Map<String, Object>> updatePlayerStatus(

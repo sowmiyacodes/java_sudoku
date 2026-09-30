@@ -22,7 +22,8 @@ import { AdminGamesPage } from './pages/AdminGamesPage';
 import { AdminHintsPage } from './pages/AdminHintsPage';
 import { AdminAnalyticsPage } from './pages/AdminAnalyticsPage';
 import { AdminAuditLogsPage } from './pages/AdminAuditLogsPage';
-import { PlayerSidebar, type DashboardView } from './components/PlayerSidebar';
+import { PlayerDashboardPage } from './pages/PlayerDashboardPage';
+import { PlayerSidebar, PlayerWorkspaceSidebar, type DashboardView } from './components/PlayerSidebar';
 import { useAuth } from './context/useAuth';
 import { Loader2, LogIn, Trophy, UserRound, Users, LayoutDashboard } from 'lucide-react';
 
@@ -38,6 +39,7 @@ type AppView =
   | 'ROOM_WAITING'
   | 'ROOM_GAME'
   | 'DASHBOARD'
+  | 'PLAYER_DASHBOARD'
   | 'PLAYERS'
   | 'PUZZLES'
   | 'GAMES'
@@ -114,6 +116,16 @@ export const App: React.FC = () => {
     setView(dest as AppView);
   };
 
+  const isAdminUser = !!user && user.username.toLowerCase() === 'admin';
+  const getPostAuthView = (username?: string) =>
+    username?.trim().toLowerCase() === 'admin' ? 'DASHBOARD' : 'PLAYER_DASHBOARD';
+  const isPlayerWorkspaceView = !!user && !isAdminUser && [
+    'PLAYER_DASHBOARD',
+    'GAME_HISTORY',
+    'STATISTICS',
+    'PROFILE'
+  ].includes(view);
+
   return (
     <div className="relative min-h-screen bg-[#02040a] text-slate-100 font-sans flex flex-col justify-center selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Background Canvas */}
@@ -140,14 +152,26 @@ export const App: React.FC = () => {
 
           {user ? (
             <>
-              <button
-                type="button"
-                onClick={() => setView('DASHBOARD')}
-                className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-950/40 px-3 py-2 text-sm font-bold text-cyan-200 backdrop-blur transition hover:border-cyan-300 hover:bg-cyan-900/50 cursor-pointer shadow-sm"
-              >
-                <LayoutDashboard size={16} aria-hidden="true" />
-                <span>Admin Console</span>
-              </button>
+              {isAdminUser && (
+                <button
+                  type="button"
+                  onClick={() => setView('DASHBOARD')}
+                  className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-950/40 px-3 py-2 text-sm font-bold text-cyan-200 backdrop-blur transition hover:border-cyan-300 hover:bg-cyan-900/50 cursor-pointer shadow-sm"
+                >
+                  <LayoutDashboard size={16} aria-hidden="true" />
+                  <span>Admin Console</span>
+                </button>
+              )}
+              {!isAdminUser && (
+                <button
+                  type="button"
+                  onClick={() => setView('PLAYER_DASHBOARD')}
+                  className="inline-flex items-center gap-2 rounded-xl border border-violet-500/40 bg-violet-950/40 px-3 py-2 text-sm font-bold text-violet-200 backdrop-blur transition hover:border-violet-300 hover:bg-violet-900/50 cursor-pointer shadow-sm"
+                >
+                  <LayoutDashboard size={16} aria-hidden="true" />
+                  <span>My Dashboard</span>
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => setView('PROFILE')}
@@ -203,7 +227,7 @@ export const App: React.FC = () => {
       )}
 
       {/* Admin Suite Layout */}
-      {isAnalyticsView && user && (
+      {isAnalyticsView && user && isAdminUser && (
         <div className="relative z-10 flex flex-col md:flex-row min-h-screen w-full bg-slate-50 text-slate-900">
           <PlayerSidebar
             currentView={view as DashboardView}
@@ -259,6 +283,44 @@ export const App: React.FC = () => {
         </div>
       )}
 
+      {isPlayerWorkspaceView && user && (
+        <div className="relative z-10 flex min-h-screen w-full flex-col bg-slate-50 text-slate-900 md:flex-row">
+          <PlayerWorkspaceSidebar
+            currentView={view as DashboardView}
+            onNavigate={handleSidebarNavigate}
+            onPlaySudoku={() => setView('LANDING')}
+            onLogout={async () => {
+              await logout();
+              setView('LANDING');
+            }}
+          />
+          <main className="flex min-h-screen min-w-0 flex-1 flex-col overflow-hidden bg-slate-50">
+            {view === 'PLAYER_DASHBOARD' && (
+              <PlayerDashboardPage
+                onStartGame={handleStartNewGame}
+                onViewHistory={() => setView('GAME_HISTORY')}
+                onViewStats={() => setView('STATISTICS')}
+              />
+            )}
+            {view === 'GAME_HISTORY' && (
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                <GameHistoryPage />
+              </div>
+            )}
+            {view === 'STATISTICS' && (
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                <StatisticsPage />
+              </div>
+            )}
+            {view === 'PROFILE' && (
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                <ProfilePage onBack={() => setView('PLAYER_DASHBOARD')} onLogout={() => setView('LANDING')} />
+              </div>
+            )}
+          </main>
+        </div>
+      )}
+
       {/* Direct Views */}
       {view === 'LANDING' && (
         <LandingPage
@@ -276,15 +338,27 @@ export const App: React.FC = () => {
       )}
 
       {view === 'REGISTER' && (
-        <RegisterPage onBack={() => setView('LANDING')} onLogin={() => setView('LOGIN')} onComplete={() => setView('LANDING')} />
+        <RegisterPage
+          onBack={() => setView('LANDING')}
+          onLogin={() => setView('LOGIN')}
+          onComplete={(username) => setView(getPostAuthView(username))}
+        />
       )}
 
       {view === 'LOGIN' && (
-        <LoginPage onBack={() => setView('LANDING')} onRegister={() => setView('REGISTER')} onComplete={() => setView('LANDING')} />
+        <LoginPage
+          onBack={() => setView('LANDING')}
+          onRegister={() => setView('REGISTER')}
+          onComplete={(username) => setView(getPostAuthView(username))}
+        />
       )}
 
       {view === 'PROFILE' && !user && !isAuthLoading && (
-        <LoginPage onBack={() => setView('LANDING')} onRegister={() => setView('REGISTER')} onComplete={() => setView('LANDING')} />
+        <LoginPage
+          onBack={() => setView('LANDING')}
+          onRegister={() => setView('REGISTER')}
+          onComplete={(username) => setView(getPostAuthView(username))}
+        />
       )}
 
       {view === 'LEADERBOARD' && (

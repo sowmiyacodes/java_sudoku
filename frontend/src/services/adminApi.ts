@@ -1,4 +1,5 @@
 import { apiFetch } from './http';
+import type { DifficultyPerformance, PlayerProfile, RecommendationData } from '../types/sudoku';
 
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
@@ -32,6 +33,12 @@ export interface AdminPlayerRecord {
   skill: string;
   joined: string;
   active: boolean;
+}
+
+export interface AdminPlayerDetails {
+  profile: PlayerProfile;
+  recommendation: RecommendationData;
+  difficultyPerformance: DifficultyPerformance[];
 }
 
 export interface AdminGameRecord {
@@ -94,6 +101,11 @@ export const AdminApi = {
   getPlayers: async (): Promise<AdminPlayerRecord[]> => {
     const res = await apiFetch('/api/admin/players');
     return handleResponse<AdminPlayerRecord[]>(res);
+  },
+
+  getPlayerDetails: async (id: number): Promise<AdminPlayerDetails> => {
+    const res = await apiFetch(`/api/admin/players/${id}/details`);
+    return handleResponse<AdminPlayerDetails>(res);
   },
 
   updatePlayerStatus: async (id: number, active: boolean): Promise<any> => {

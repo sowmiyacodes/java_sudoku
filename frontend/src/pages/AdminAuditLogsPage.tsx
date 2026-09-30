@@ -95,8 +95,16 @@ export const AdminAuditLogsPage: React.FC = () => {
             <p className="text-xs font-medium">Fetching Audit Trail...</p>
           </div>
         ) : filteredLogs.length === 0 ? (
-          <div className="p-12 text-center text-slate-500 text-xs">
-            No audit log records found matching your filters.
+          <div className="px-6 py-14 text-center">
+            <FileText size={24} className="mx-auto mb-3 text-slate-300" />
+            <p className="text-sm font-semibold text-slate-700">
+              {logs.length === 0 ? 'No administrative activity has been recorded yet.' : 'No records match these filters.'}
+            </p>
+            {logs.length === 0 && (
+              <p className="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-slate-500">
+                Opening a player’s statistics or changing a player’s account status will be recorded here. Refresh the logs after an action.
+              </p>
+            )}
           </div>
         ) : (
           <div className="overflow-x-auto">

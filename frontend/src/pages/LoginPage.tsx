@@ -6,7 +6,7 @@ import { AuthPageFrame, fieldClassName, labelClassName, primaryButtonClassName }
 interface LoginPageProps {
   onBack: () => void;
   onRegister: () => void;
-  onComplete: () => void;
+  onComplete: (username?: string) => void;
 }
 
 export function LoginPage({ onBack, onRegister, onComplete }: LoginPageProps) {
@@ -22,7 +22,7 @@ export function LoginPage({ onBack, onRegister, onComplete }: LoginPageProps) {
     setIsSubmitting(true);
     try {
       await login(identifier, password);
-      onComplete();
+      onComplete(identifier.trim());
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Unable to log in.');
     } finally {

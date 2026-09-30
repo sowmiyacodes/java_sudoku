@@ -7,7 +7,7 @@ import type { RegisterData } from '../services/authApi';
 interface RegisterPageProps {
   onBack: () => void;
   onLogin: () => void;
-  onComplete: () => void;
+  onComplete: (username?: string) => void;
 }
 
 export function RegisterPage({ onBack, onLogin, onComplete }: RegisterPageProps) {
@@ -27,7 +27,7 @@ export function RegisterPage({ onBack, onLogin, onComplete }: RegisterPageProps)
     setIsSubmitting(true);
     try {
       await register(form);
-      onComplete();
+      onComplete(form.username.trim());
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Unable to create your account.');
     } finally {
