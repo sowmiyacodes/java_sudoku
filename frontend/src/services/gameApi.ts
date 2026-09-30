@@ -1,4 +1,12 @@
-import type { CreateGameParams, GameState, MoveResponse, PerformanceAnalysis, SubmitResponse } from '../types/sudoku';
+import type {
+  CompletionPrediction,
+  CompletionPredictionRequest,
+  CreateGameParams,
+  GameState,
+  MoveResponse,
+  PerformanceAnalysis,
+  SubmitResponse,
+} from '../types/sudoku';
 import { apiFetch } from './http';
 
 const API_BASE_URL = '/api/games';
@@ -150,6 +158,20 @@ export class GameApi {
     const response = await apiFetch(`${API_BASE_URL}/analysis/history`);
     if (!response.ok) {
       throw new Error(`Failed to fetch performance history: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
+  static async predictCompletion(
+    snapshot: CompletionPredictionRequest,
+  ): Promise<CompletionPrediction> {
+    const response = await apiFetch('/api/ml/predict/completion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(snapshot),
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to predict completion probability: ${response.statusText}`);
     }
     return response.json();
   }

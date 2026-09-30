@@ -29,7 +29,7 @@ flowchart TD
         subgraph Models["5 Production ML Models"]
             M1["1. Skill Classifier (LogReg / DecTree)"]
             M2["2. Puzzle Difficulty (LogReg)"]
-            M3["3. Completion Predictor (DecTree)"]
+            M3["3. Completion Predictor (Gradient Boosting)"]
             M4["4. Hint Recommender (GradBoost)"]
             M5["5. Personalized Recommender (GradBoost)"]
         end
@@ -61,7 +61,7 @@ flowchart TD
 |---|---|---|---|---|
 | **1. Player Skill Classifier** | `BEGINNER`, `INTERMEDIATE`, `ADVANCED`, `EXPERT` | Logistic Regression (L2 regularized) & Decision Tree | 12 gameplay performance features | Test Acc: 0.9556, F1: 0.9554 |
 | **2. Puzzle Difficulty Classifier** | `EASY`, `MEDIUM`, `HARD`, `EXPERT` | Logistic Regression (Multinomial) | 13 structural & topological features | Evaluated on 2,744 IEEE + Benchmark Puzzles |
-| **3. Puzzle Completion Predictor** | In-game completion probability (0.0 to 1.0) & binary outcome | Decision Tree Classifier | 11 real-time snapshot features | Test Acc: 1.0000, ROC-AUC: 1.0000 |
+| **3. Puzzle Completion Predictor** | In-game completion probability (0.0 to 1.0) & binary outcome | Gradient Boosting (selected on validation F1) | 9 pre-game and current-state features | Test Acc: 0.8406, weighted F1: 0.8164, ROC-AUC: 0.8148 |
 | **4. Pedagogical Hint Recommender** | Scaffolding guidance level (`CELL`, `ROW`, `COLUMN`, `REGION`, `TECHNIQUE`, `NEXT_MOVE`) | Gradient Boosting Classifier | 8 hint context features | Test Acc: 0.6027, F1: 0.6076 |
 | **5. Personalized Puzzle Recommender** | Recommended difficulty level adapted to player mastery | Gradient Boosting Classifier | 10 performance trajectory features | Test Acc: 1.0000, F1: 1.0000 |
 
@@ -93,9 +93,11 @@ flowchart TD
 
 ### 3.3 Model 3: In-Game Puzzle Completion Estimator
 * **Module:** `ml.training.train_completion`
-* **Features:** 11 snapshot features during live gameplay (`elapsed_time_ratio`, `completion_percentage`, `error_count`, `hints_used`, `undo_count`, `current_streak`, `recent_error_rate`, `moves_per_minute`, `difficulty_numeric`, `pencil_marks_ratio`, `pause_count`).
-* **Output:** `completion_probability`, `predicted_completion` (boolean), `confidence` score.
-* **Artifacts:** `ml/models/saved_models/completion_estimator.joblib`, `completion_estimator_metadata.json`.
+* **Features:** `skill_level_numeric`, `difficulty_numeric`, `historical_completion_rate`, `average_solving_time`, `recent_accuracy`, `current_streak`, `current_progress`, `elapsed_time_ratio`, and `puzzle_complexity_estimate`.
+* **Leakage prevention:** Training features for a session use only earlier sessions for that player; current-session final duration, accuracy, hints, and mistakes are excluded. Every player's records stay within one train/validation/test split.
+* **Checkpoint limitation:** The bundled gameplay CSV contains session summaries rather than timestamped board snapshots. Training therefore uses standardized progress checkpoints (25%, 50%, 75%) and must not be described as measured move-by-move telemetry.
+* **Live integration:** The solo and multiplayer game screens send the current board progress, elapsed time, mistakes, hints, difficulty, and authenticated player's history to `/api/ml/predict/completion`.
+* **Artifacts:** `ml/models/completion_model.pkl`, `completion_scaler.pkl`, `completion_metadata.json`, and `completion_confusion_matrix.json`.
 
 ### 3.4 Model 4: Pedagogical Hint Recommender
 * **Module:** `ml.training.train_hint`

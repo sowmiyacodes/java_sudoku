@@ -205,6 +205,7 @@ class CompletionPredictionResponse(BaseModel):
     predicted_completion: bool
     confidence: float
     top_factors: List[str]
+    model_version: str = "v1.0"
 
 # 4. Hint
 class HintPredictionRequest(BaseModel):
@@ -342,10 +343,12 @@ def predict_difficulty(request: DifficultyPredictionRequest):
 def predict_completion(request: CompletionPredictionRequest):
     model = artifacts["completion"]["model"]
     scaler = artifacts["completion"]["scaler"]
+    metadata = artifacts["completion"]["meta"] or {}
     if model is None:
         load_all_artifacts()
         model = artifacts["completion"]["model"]
         scaler = artifacts["completion"]["scaler"]
+        metadata = artifacts["completion"]["meta"] or {}
         if model is None:
             raise HTTPException(status_code=503, detail="Completion model not ready.")
 
@@ -353,7 +356,7 @@ def predict_completion(request: CompletionPredictionRequest):
     diff_map = {"EASY": 1, "MEDIUM": 2, "HARD": 3, "EXPERT": 4}
     s_num = skill_map.get(request.skill_level.upper(), 2)
     d_num = diff_map.get(request.difficulty.upper(), 2)
-    elapsed_ratio = request.current_progress * (request.elapsed_time / max(60.0, 300.0 * d_num))
+    elapsed_ratio = request.elapsed_time / max(60.0, 300.0 * d_num)
 
     row = [
         float(s_num),
@@ -361,15 +364,19 @@ def predict_completion(request: CompletionPredictionRequest):
         request.historical_completion_rate,
         request.average_solving_time,
         request.recent_accuracy,
-        float(request.hints_used),
-        float(request.mistakes_made),
         float(request.current_streak),
         request.current_progress,
         round(elapsed_ratio, 4),
-        float(d_num * 1.5)
+        float(d_num * 1.5),
     ]
     X_input = pd.DataFrame([row], columns=COMPLETION_FEATURE_COLUMNS)
-    X_proc = scaler.transform(X_input) if scaler is not None else X_input
+    X_proc = X_input
+    if scaler is not None and metadata.get("uses_scaler", True):
+        X_proc = pd.DataFrame(
+            scaler.transform(X_input),
+            columns=COMPLETION_FEATURE_COLUMNS,
+            index=X_input.index,
+        )
 
     prob = 0.85
     pred_completed = True
@@ -382,16 +389,17 @@ def predict_completion(request: CompletionPredictionRequest):
         prob = 0.90 if pred_completed else 0.20
 
     top_factors = [
-        f"Important model factor: Player current accuracy ({int(request.recent_accuracy * 100)}%)",
-        f"Important model factor: Current puzzle progression ({int(request.current_progress * 100)}% filled)",
-        f"Important model factor: Recorded mistakes ({request.mistakes_made})"
+        f"Player historical completion rate ({int(request.historical_completion_rate * 100)}%)",
+        f"Current puzzle progression ({int(request.current_progress * 100)}% filled)",
+        f"Elapsed time relative to the expected difficulty baseline ({elapsed_ratio:.2f}x)",
     ]
 
     response = CompletionPredictionResponse(
         completion_probability=prob,
         predicted_completion=pred_completed,
         confidence=round(abs(prob - 0.5) * 2.0, 2),
-        top_factors=top_factors
+        top_factors=top_factors,
+        model_version=(artifacts["completion"]["meta"] or {}).get("version", "v1.0"),
     )
     log_prediction_event("COMPLETION", request.model_dump(), response.model_dump())
     return response

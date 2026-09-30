@@ -6,7 +6,9 @@ import { SudokuBoard } from '../components/SudokuBoard';
 import { NumberPad } from '../components/NumberPad';
 import { HintHistoryModal } from '../components/HintHistoryModal';
 import { PerformanceAnalysisModal } from '../components/PerformanceAnalysisModal';
+import { CompletionPredictionCard } from '../components/CompletionPredictionCard';
 import { useGameTimer } from '../hooks/useGameTimer';
+import { useCompletionPrediction } from '../hooks/useCompletionPrediction';
 import { RoomApi, RoomApiError, type RoomPlayer, type RoomState } from '../services/roomApi';
 
 interface MultiplayerGamePageProps {
@@ -81,6 +83,7 @@ export const MultiplayerGamePage: React.FC<MultiplayerGamePageProps> = ({ roomCo
   const inFlightRef = useRef(false);
   const stateRef = useRef<RoomState | null>(null);
   const versionRef = useRef(-1);
+  const hintHistoryVersionRef = useRef(-1);
 
   const notify = useCallback((type: 'error' | 'success' | 'info', message: string, duration = 3500) => {
     setNotification({ type, message });
@@ -122,6 +125,7 @@ export const MultiplayerGamePage: React.FC<MultiplayerGamePageProps> = ({ roomCo
   // Initial load + REST polling loop (reset per room).
   useEffect(() => {
     versionRef.current = -1;
+    hintHistoryVersionRef.current = -1;
     stateRef.current = null;
     void fetchOnce();
     const id = setInterval(() => void fetchOnce(), POLL_INTERVAL_MS);
@@ -131,6 +135,11 @@ export const MultiplayerGamePage: React.FC<MultiplayerGamePageProps> = ({ roomCo
   const game = room?.game ?? null;
   const isCompleted = room?.status === 'COMPLETED' || (game?.completed ?? false);
   const connectionLost = pollFailures >= 2;
+  const completionPrediction = useCompletionPrediction(
+    game,
+    hintHistory.length,
+    room?.status === 'IN_PROGRESS' && !isCompleted,
+  );
 
   const { formattedTime } = useGameTimer({
     initialSeconds: game?.elapsedSeconds ?? 0,
@@ -140,8 +149,12 @@ export const MultiplayerGamePage: React.FC<MultiplayerGamePageProps> = ({ roomCo
   const gameId = game?.id ?? null;
 
   useEffect(() => {
-    if (gameId != null) loadHintHistory(gameId);
-  }, [gameId, loadHintHistory]);
+    if (gameId == null || room?.stateVersion == null) return;
+    if (room.stateVersion > hintHistoryVersionRef.current) {
+      hintHistoryVersionRef.current = room.stateVersion;
+      loadHintHistory(gameId);
+    }
+  }, [gameId, room?.stateVersion, loadHintHistory]);
 
   const numberCounts = useMemo(() => {
     const counts: { [num: number]: number } = {};
@@ -532,6 +545,8 @@ export const MultiplayerGamePage: React.FC<MultiplayerGamePageProps> = ({ roomCo
           <span>{isSubmitting ? 'Checking...' : 'Submit Solution'}</span>
         </button>
       </div>
+
+      <CompletionPredictionCard {...completionPrediction} />
 
       {/* Results or number pad */}
       {isCompleted ? (

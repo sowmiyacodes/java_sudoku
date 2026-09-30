@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.1.0",
-  "last_updated": "2026-09-29T21:57:46.393454",
+  "last_updated": "2026-09-30T08:31:28.127840",
   "datasets": [
     {
       "id": "ds_human_ieee",
@@ -37,7 +37,7 @@
     {
       "id": "ds_player_sessions",
       "name": "Multi-Session Player Gameplay Telemetry",
-      "source": "Simulated Human Archetypes & Spring Boot Telemetry",
+      "source": "Simulated human-archetype bootstrap sessions",
       "type": "Player Behavioral Sessions",
       "path": "ml/data/raw/player_gameplay_sessions.csv",
       "checksum": "3ff8ba2440dbc7847ade9bccc417cd64bc82fb42889ff71b0903816ebd5d8827",
@@ -59,12 +59,36 @@
       "status": "VALIDATED"
     },
     {
+      "id": "ds_application_sessions",
+      "name": "Live Application Gameplay Telemetry",
+      "source": "http://localhost:8080/api/analytics/gameplay-export",
+      "type": "Spring Boot player game export",
+      "path": "ml/data/application/player_gameplay.csv",
+      "checksum": "f162512a35cbae190d2ed17dcca8d7f3b83a07900bdfe0a1ee479d60640f47c0",
+      "row_count": 16385,
+      "columns": [
+        "game_id",
+        "player_id",
+        "difficulty",
+        "duration",
+        "moves",
+        "mistakes",
+        "hints",
+        "undos",
+        "accuracy",
+        "score",
+        "completion_status",
+        "timestamp"
+      ],
+      "status": "INGESTED"
+    },
+    {
       "id": "ds_processed_players",
       "name": "Engineered Player Feature Matrix",
       "source": "Feature Engineering Pipeline",
       "type": "Processed Feature Table",
       "path": "ml/data/processed/player_dataset.csv",
-      "checksum": "33a93849f5cc1b6d5230448a239e76ac55359ddf1031ac738d74274ba9fc49de",
+      "checksum": "a42383d0cbd4aa9e94e84fad9b0787e7a1d5e434214bec10bf6bb42c0ab2966c",
       "row_count": 600,
       "feature_version": "v1.1",
       "status": "PROCESSED"

@@ -2,15 +2,17 @@
 
 ## 1. Executive Evaluation Summary
 
-Every machine learning model in SmartSudoku is rigorously trained, validated, and evaluated on stratified held-out test sets. No mock or heuristic rules are substituted for model predictions in production.
+Training runs write their own validation and held-out test metrics to the model metadata. The completion model uses player-grouped splits so one player's sessions cannot appear in both training and test data. Its previous 100% score came from outcome-correlated fabricated checkpoints and is intentionally no longer reported.
 
-| Model | Champion Algorithm | Features | Test Accuracy | Precision (Macro) | Recall (Macro) | F1-Score (Macro) |
+| Model | Champion Algorithm | Features | Test Accuracy | Precision | Recall | F1-Score |
 |---|---|---|---|---|---|---|
 | **Skill Classifier** | Logistic Regression | 12 | **0.9556** (95.6%) | 0.9560 | 0.9556 | **0.9554** |
 | **Puzzle Difficulty** | Logistic Regression | 13 | **0.3762** (37.6%)* | 0.3748 | 0.3762 | **0.3701** |
-| **In-Game Completion** | Decision Tree | 11 | **1.0000** (100.0%) | 1.0000 | 1.0000 | **1.0000** |
+| **In-Game Completion** | Gradient Boosting | 9 | **0.8406** | 0.8228 | 0.8406 | **0.8164** |
 | **Hint Recommender** | Gradient Boosting | 8 | **0.6027** (60.3%) | 0.6152 | 0.6027 | **0.6076** |
 | **Personalized Recommender**| Gradient Boosting | 10 | **1.0000** (100.0%) | 1.0000 | 1.0000 | **1.0000** |
+
+Completion metrics are weighted averages; other values in this summary table are macro averages.
 
 *\*Note on Puzzle Difficulty: Evaluated across 4 highly granular, continuous difficulty classes (`EASY`, `MEDIUM`, `HARD`, `EXPERT`) using 2,744 real IEEE human gameplay and benchmark puzzles. 37.6% 4-class multiclass accuracy substantially exceeds the random baseline of 25.0%.*
 
@@ -67,21 +69,16 @@ Every machine learning model in SmartSudoku is rigorously trained, validated, an
 ## 4. Model 3: In-Game Puzzle Completion Estimator
 
 * **Target Output:** Binary completion likelihood (`true`/`false`) and calibrated `completion_probability` $[0.0, 1.0]$.
-* **Dataset Size:** 1,200 in-game snapshot trajectories.
-* **Split:** 80% Train, 20% Test (Stratified)
+* **Dataset:** 16,385 completed and abandoned gameplay session summaries across 600 players from `ml/data/raw/player_gameplay_sessions.csv`, expanded to 49,155 standardized checkpoints.
+* **Split:** 70% train, 15% validation, and 15% test, grouped by player.
+* **Checkpoint generation:** Standardized 25%, 50%, and 75% progress stages are used because the bundled CSV does not contain move-by-move snapshots. Only player history before each game and the current difficulty/progress stage enter the model features.
+* **Data caveat:** This checked-in run has `application_sessions: 0` in its metadata, so its metrics measure the simulated bootstrap dataset, not deployed-player performance. Collect real sessions with `SUDOKU_GAMEPLAY_EXPORT_URL` and retrain before using these metrics as evidence of production accuracy.
 
 ### 4.1 Evaluation Results
-* **Test Accuracy:** 1.0000 (100.0%)
-* **Precision:** 1.0000
-* **Recall:** 1.0000
-* **F1-Score:** 1.0000
-* **ROC-AUC:** 1.0000
+On the player-grouped held-out test set, the selected Gradient Boosting classifier achieved Accuracy 0.8406, weighted Precision 0.8228, weighted Recall 0.8406, weighted F1 0.8164, and ROC-AUC 0.8148. The confusion matrix is saved in `ml/models/completion_confusion_matrix.json`. Running `python -m ml.training.train_completion` regenerates these values in `ml/models/completion_metadata.json`.
 
-### 4.2 Key In-Game Predictors
-1. `completion_percentage` (Current filled cells / 81)
-2. `recent_error_rate` (Errors incurred within the last 5 minutes)
-3. `elapsed_time_ratio` (Time spent vs expected baseline)
-4. `hints_used` (Reliance on hints during the session)
+### 4.2 Prediction Inputs
+The live app additionally supplies current mistakes and hints. These are available for the explicit heuristic fallback, but are not model features until the training dataset records them at the same in-game checkpoint (rather than only at session end).
 
 ---
 

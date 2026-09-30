@@ -11,6 +11,8 @@ from fastapi.testclient import TestClient
 from ml.features.feature_engineer import derive_skill_label, build_player_features, FEATURE_COLUMNS
 from ml.features.puzzle_features import extract_puzzle_features, PUZZLE_FEATURE_COLUMNS
 from ml.preprocessing.pipeline import clean_session_data
+from ml.data.download_dataset import normalize_application_gameplay
+from ml.training.train_completion import COMPLETION_FEATURE_COLUMNS, generate_completion_training_dataset
 from ml.api.main import app
 
 client = TestClient(app)
@@ -116,6 +118,59 @@ def test_fastapi_predict_completion():
     data = response.json()
     assert 0.0 <= data["completion_probability"] <= 1.0
     assert isinstance(data["predicted_completion"], bool)
+    assert data["model_version"]
+
+def test_completion_features_do_not_use_current_session_outcome_or_totals():
+    sessions = pd.DataFrame([
+        {
+            "game_id": 1, "player_id": 10, "difficulty": "Easy",
+            "duration": 300, "accuracy": 0.9, "hints": 0, "mistakes": 0,
+            "completion_status": "COMPLETED",
+            "timestamp": "2026-01-01T12:00:00",
+        },
+        {
+            "game_id": 2, "player_id": 10, "difficulty": "Hard",
+            "duration": 900, "accuracy": 0.6, "hints": 6, "mistakes": 8,
+            "completion_status": "ABANDONED",
+            "timestamp": "2026-01-02T12:00:00",
+        },
+    ])
+    alternate = sessions.copy()
+    alternate.loc[1, ["duration", "accuracy", "hints", "mistakes", "completion_status"]] = [
+        120, 1.0, 0, 0, "COMPLETED"
+    ]
+
+    abandoned_snapshot = generate_completion_training_dataset(sessions)
+    completed_snapshot = generate_completion_training_dataset(alternate)
+    abandoned_snapshot = abandoned_snapshot[abandoned_snapshot["game_id"] == 2]
+    completed_snapshot = completed_snapshot[completed_snapshot["game_id"] == 2]
+
+    pd.testing.assert_frame_equal(
+        abandoned_snapshot[COMPLETION_FEATURE_COLUMNS].reset_index(drop=True),
+        completed_snapshot[COMPLETION_FEATURE_COLUMNS].reset_index(drop=True),
+    )
+    assert abandoned_snapshot["target_completed"].unique().tolist() == [0]
+    assert completed_snapshot["target_completed"].unique().tolist() == [1]
+    assert abandoned_snapshot["current_progress"].tolist() == [0.25, 0.5, 0.75]
+
+def test_application_gameplay_export_normalization():
+    normalized = normalize_application_gameplay([{
+        "gameId": 7,
+        "playerId": None,
+        "difficulty": "Hard",
+        "duration": 420,
+        "moves": 30,
+        "mistakes": 2,
+        "hints": 1,
+        "undos": 0,
+        "accuracy": 0.9375,
+        "score": 800,
+        "completionStatus": "COMPLETED",
+        "timestamp": "2026-01-02T12:00:00",
+    }])
+    assert normalized.loc[0, "game_id"] == 7
+    assert normalized.loc[0, "player_id"] == "guest-7"
+    assert normalized.loc[0, "completion_status"] == "COMPLETED"
 
 def test_fastapi_predict_hint():
     payload = {

@@ -1,5 +1,237 @@
 [
   {
+    "experiment_id": "EXP-7D0293A5",
+    "model_type": "personalized_recommendation",
+    "selected_algorithm": "Gradient Boosting",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.8889,
+        "val_f1_weighted": 0.8905,
+        "val_precision": 0.8971,
+        "val_recall": 0.8889
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.9889,
+        "val_f1_weighted": 0.9889,
+        "val_precision": 0.9893,
+        "val_recall": 0.9889
+      },
+      "Random Forest": {
+        "val_accuracy": 0.9889,
+        "val_f1_weighted": 0.9889,
+        "val_precision": 0.9893,
+        "val_recall": 0.9889
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 1.0,
+        "val_f1_weighted": 1.0,
+        "val_precision": 1.0,
+        "val_recall": 1.0
+      }
+    },
+    "test_metrics": {
+      "accuracy": 1.0,
+      "precision_weighted": 1.0,
+      "recall_weighted": 1.0,
+      "f1_weighted": 1.0
+    },
+    "duration_seconds": 0.76,
+    "timestamp": "2026-09-30T06:40:40.181978",
+    "artifact_paths": {
+      "model_path": "ml/models/recommendation_model.pkl",
+      "scaler_path": "ml/models/recommendation_scaler.pkl",
+      "label_encoder_path": "ml/models/recommendation_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-4A03AFD5",
+    "model_type": "hint_recommendation",
+    "selected_algorithm": "Gradient Boosting",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.496,
+        "val_f1_weighted": 0.4789,
+        "val_precision": 0.4757,
+        "val_recall": 0.496
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.6293,
+        "val_f1_weighted": 0.6382,
+        "val_precision": 0.658,
+        "val_recall": 0.6293
+      },
+      "Random Forest": {
+        "val_accuracy": 0.6373,
+        "val_f1_weighted": 0.6411,
+        "val_precision": 0.6466,
+        "val_recall": 0.6373
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.648,
+        "val_f1_weighted": 0.6536,
+        "val_precision": 0.6647,
+        "val_recall": 0.648
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.6027,
+      "precision_weighted": 0.6192,
+      "recall_weighted": 0.6027,
+      "f1_weighted": 0.6076
+    },
+    "duration_seconds": 2.56,
+    "timestamp": "2026-09-30T06:40:39.404485",
+    "artifact_paths": {
+      "model_path": "ml/models/hint_model.pkl",
+      "scaler_path": "ml/models/hint_scaler.pkl",
+      "label_encoder_path": "ml/models/hint_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-1572074D",
+    "model_type": "puzzle_completion",
+    "selected_algorithm": "Gradient Boosting",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.8285,
+        "val_f1_weighted": 0.8031,
+        "val_precision": 0.8066,
+        "val_recall": 0.8285
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.8388,
+        "val_f1_weighted": 0.8105,
+        "val_precision": 0.824,
+        "val_recall": 0.8388
+      },
+      "Random Forest": {
+        "val_accuracy": 0.8368,
+        "val_f1_weighted": 0.8107,
+        "val_precision": 0.8195,
+        "val_recall": 0.8368
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.838,
+        "val_f1_weighted": 0.8115,
+        "val_precision": 0.8217,
+        "val_recall": 0.838
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.8404,
+      "precision_weighted": 0.8224,
+      "recall_weighted": 0.8404,
+      "f1_weighted": 0.8169,
+      "roc_auc": 0.8183
+    },
+    "duration_seconds": 11.56,
+    "timestamp": "2026-09-30T06:40:36.832551",
+    "artifact_paths": {
+      "model_path": "ml/models/completion_model.pkl",
+      "scaler_path": "ml/models/completion_scaler.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-B401CD45",
+    "model_type": "puzzle_difficulty",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.3835,
+        "val_f1_weighted": 0.3766,
+        "val_f1_macro": 0.3742,
+        "val_precision": 0.3852,
+        "val_recall": 0.3835
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.3592,
+        "val_f1_weighted": 0.3269,
+        "val_f1_macro": 0.3281,
+        "val_precision": 0.3498,
+        "val_recall": 0.3592
+      },
+      "Random Forest": {
+        "val_accuracy": 0.3495,
+        "val_f1_weighted": 0.3488,
+        "val_f1_macro": 0.347,
+        "val_precision": 0.3504,
+        "val_recall": 0.3495
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.3568,
+        "val_f1_weighted": 0.3597,
+        "val_f1_macro": 0.3581,
+        "val_precision": 0.3651,
+        "val_recall": 0.3568
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.3762,
+      "precision_weighted": 0.3722,
+      "recall_weighted": 0.3762,
+      "f1_weighted": 0.3701,
+      "f1_macro": 0.3671
+    },
+    "duration_seconds": 5.27,
+    "timestamp": "2026-09-30T06:40:25.268345",
+    "artifact_paths": {
+      "model_path": "ml/models/difficulty_model.pkl",
+      "scaler_path": "ml/models/difficulty_scaler.pkl",
+      "label_encoder_path": "ml/models/difficulty_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-34D5D28E",
+    "model_type": "player_skill",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.1",
+    "algorithms_evaluated": [],
+    "validation_scores": {},
+    "test_metrics": {
+      "accuracy": 0.9556,
+      "precision": 0.9568,
+      "recall": 0.9556,
+      "f1_weighted": 0.9554,
+      "f1_macro": 0.9534
+    },
+    "duration_seconds": 1.16,
+    "timestamp": "2026-09-30T06:40:20.000540",
+    "artifact_paths": {}
+  },
+  {
     "experiment_id": "EXP-51C78411",
     "model_type": "personalized_recommendation",
     "selected_algorithm": "Gradient Boosting",

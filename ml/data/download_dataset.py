@@ -232,11 +232,61 @@ def generate_player_gameplay_sessions(num_players=600, seed=42):
     df.to_csv(out_path, index=False)
     print(f"  -> Generated {len(df)} gameplay records across {num_players} players to {out_path}")
 
-    app_export_path = os.path.join(APP_DIR, "player_gameplay.csv")
-    df.to_csv(app_export_path, index=False)
-    print(f"  -> Saved application export copy at {app_export_path}")
-
     update_manifest()
+
+def normalize_application_gameplay(records: list[dict]) -> pd.DataFrame:
+    """Maps the Spring Boot gameplay export into the training CSV schema."""
+    expected_columns = [
+        "game_id", "player_id", "difficulty", "duration", "moves", "mistakes",
+        "hints", "undos", "accuracy", "score", "completion_status", "timestamp",
+    ]
+    if not records:
+        return pd.DataFrame(columns=expected_columns)
+
+    column_map = {
+        "gameId": "game_id",
+        "playerId": "player_id",
+        "completionStatus": "completion_status",
+    }
+    sessions = pd.DataFrame(records).rename(columns=column_map)
+    missing = set(expected_columns).difference(sessions.columns)
+    if missing:
+        raise ValueError(f"Gameplay export is missing fields: {sorted(missing)}")
+
+    sessions = sessions[expected_columns].dropna(subset=["game_id"]).copy()
+    sessions["player_id"] = sessions.apply(
+        lambda row: row["player_id"] if pd.notna(row["player_id"]) else f"guest-{row['game_id']}",
+        axis=1,
+    )
+    sessions["completion_status"] = sessions["completion_status"].astype(str).str.upper()
+    return sessions.drop_duplicates(subset=["game_id"], keep="last")
+
+def download_application_gameplay() -> int:
+    """Fetches real game sessions from the local Spring Boot analytics endpoint."""
+    endpoint = os.environ.get(
+        "SUDOKU_GAMEPLAY_EXPORT_URL",
+        "http://localhost:8080/api/analytics/gameplay-export",
+    )
+    try:
+        response = requests.get(endpoint, headers=HEADERS, timeout=10)
+        response.raise_for_status()
+        records = response.json()
+    except requests.RequestException as exc:
+        print(f"[Application telemetry] Could not fetch {endpoint}: {exc}")
+        return 0
+
+    if not isinstance(records, list):
+        raise ValueError(f"Gameplay export at {endpoint} must return a JSON array.")
+
+    sessions = normalize_application_gameplay(records)
+    if sessions.empty:
+        print("[Application telemetry] No game records returned; keeping existing dataset.")
+        return 0
+
+    app_path = os.path.join(APP_DIR, "player_gameplay.csv")
+    sessions.to_csv(app_path, index=False)
+    print(f"[Application telemetry] Saved {len(sessions)} real game records to {app_path}")
+    return len(sessions)
 
 def update_manifest():
     """Generates and updates the dataset manifest file."""
@@ -269,13 +319,24 @@ def update_manifest():
             {
                 "id": "ds_player_sessions",
                 "name": "Multi-Session Player Gameplay Telemetry",
-                "source": "Simulated Human Archetypes & Spring Boot Telemetry",
+                "source": "Simulated human-archetype bootstrap sessions",
                 "type": "Player Behavioral Sessions",
                 "path": "ml/data/raw/player_gameplay_sessions.csv",
                 "checksum": compute_checksum(os.path.join(RAW_DIR, "player_gameplay_sessions.csv")),
                 "row_count": len(pd.read_csv(os.path.join(RAW_DIR, "player_gameplay_sessions.csv"))) if os.path.exists(os.path.join(RAW_DIR, "player_gameplay_sessions.csv")) else 0,
                 "columns": ["game_id", "player_id", "difficulty", "duration", "moves", "mistakes", "hints", "undos", "accuracy", "score", "completion_status", "timestamp"],
                 "status": "VALIDATED"
+            },
+            {
+                "id": "ds_application_sessions",
+                "name": "Live Application Gameplay Telemetry",
+                "source": os.environ.get("SUDOKU_GAMEPLAY_EXPORT_URL", "http://localhost:8080/api/analytics/gameplay-export"),
+                "type": "Spring Boot player game export",
+                "path": "ml/data/application/player_gameplay.csv",
+                "checksum": compute_checksum(os.path.join(APP_DIR, "player_gameplay.csv")),
+                "row_count": len(pd.read_csv(os.path.join(APP_DIR, "player_gameplay.csv"))) if os.path.exists(os.path.join(APP_DIR, "player_gameplay.csv")) else 0,
+                "columns": ["game_id", "player_id", "difficulty", "duration", "moves", "mistakes", "hints", "undos", "accuracy", "score", "completion_status", "timestamp"],
+                "status": "INGESTED"
             },
             {
                 "id": "ds_processed_players",
@@ -298,3 +359,5 @@ def update_manifest():
 if __name__ == "__main__":
     download_external_datasets()
     generate_player_gameplay_sessions()
+    download_application_gameplay()
+    update_manifest()

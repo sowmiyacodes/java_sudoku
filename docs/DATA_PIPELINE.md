@@ -9,7 +9,7 @@ flowchart LR
     subgraph Ingestion["Data Ingestion"]
         Kaggle["Kaggle API Ingestion (KAGGLE_USERNAME, KAGGLE_KEY)"]
         Fallback["Curated Benchmark Bank (2,744 Puzzles)"]
-        H2Data["H2 Database Game Sessions"]
+        H2Data["Spring Boot Gameplay Export API"]
     end
 
     subgraph Preprocessing["Validation & Preprocessing"]
@@ -54,6 +54,9 @@ The ingestion script checks for standard environment variables:
 * `KAGGLE_USERNAME`: Kaggle API account username.
 * `KAGGLE_KEY`: Kaggle API authentication key.
 * `KAGGLE_DATASET`: Kaggle dataset identifier (e.g. `bryanpark/sudoku`, `rohanrao/sudoku`).
+* `SUDOKU_GAMEPLAY_EXPORT_URL`: Spring Boot export endpoint; defaults to `http://localhost:8080/api/analytics/gameplay-export`.
+
+With the backend running, `python ml/data/download_dataset.py` pulls persisted game summaries into `ml/data/application/player_gameplay.csv`. The completion trainer appends application game IDs not already in the bootstrap data and namespaces application users separately from simulated bootstrap players. If the endpoint is unreachable, the script reports the connection failure and leaves the existing application dataset intact.
 
 ### 2.2 Graceful Fallback Strategy
 If Kaggle credentials are not provided or if the Kaggle API call fails:

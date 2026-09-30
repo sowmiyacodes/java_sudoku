@@ -167,7 +167,12 @@ public class RoomMoveService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Room game is not in progress.");
         }
 
-        return gameService.requestHintForGame(room.getGame(), level);
+        HintResponse response = gameService.requestHintForGame(room.getGame(), level);
+        if (response != null && response.isAvailable()) {
+            room.bumpVersion();
+            room.touch();
+        }
+        return response;
     }
 
     /**

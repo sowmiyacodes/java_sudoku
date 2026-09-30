@@ -2,7 +2,7 @@
   "model_type": "hint_recommendation",
   "algorithm": "Gradient Boosting",
   "version": "v1.0",
-  "trained_at": "2026-09-29T21:57:55.226045",
+  "trained_at": "2026-09-30T08:31:50.177153",
   "dataset_samples": 2500,
   "features": [
     "player_skill_num",

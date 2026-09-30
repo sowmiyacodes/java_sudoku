@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from typing import Dict, Any
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GroupShuffleSplit
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
@@ -30,6 +30,7 @@ BASE_DIR = os.path.dirname(__file__)
 DATA_DIR = os.path.join(BASE_DIR, "..", "data")
 MODELS_DIR = os.path.join(BASE_DIR, "..", "models")
 SESSIONS_PATH = os.path.join(DATA_DIR, "raw", "player_gameplay_sessions.csv")
+APP_SESSIONS_PATH = os.path.join(DATA_DIR, "application", "player_gameplay.csv")
 
 os.makedirs(MODELS_DIR, exist_ok=True)
 
@@ -39,8 +40,6 @@ COMPLETION_FEATURE_COLUMNS = [
     "historical_completion_rate",
     "average_solving_time",
     "recent_accuracy",
-    "hints_used",
-    "mistakes_made",
     "current_streak",
     "current_progress",
     "elapsed_time_ratio",
@@ -49,58 +48,90 @@ COMPLETION_FEATURE_COLUMNS = [
 
 def generate_completion_training_dataset(sessions_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Constructs in-game snapshot training dataset from gameplay sessions.
-    Simulates mid-game checkpoints (e.g. 30%, 50%, 75% progress) to train a real
-    completion probability estimator.
+    Expands each completed/abandoned session into standardized progress
+    checkpoints. Checkpoint features use only difficulty and player history
+    available before the session; final-session duration, accuracy, hints, and
+    mistakes are deliberately excluded to prevent target leakage.
+
+    The source CSV contains session summaries rather than move-by-move
+    telemetry, so the progress checkpoints are standardized training stages,
+    not reconstructed timestamps from an individual playthrough.
     """
+    required_columns = {
+        "game_id", "player_id", "difficulty", "completion_status",
+        "duration", "accuracy", "timestamp"
+    }
+    missing = required_columns.difference(sessions_df.columns)
+    if missing:
+        raise ValueError(f"Gameplay sessions are missing required columns: {sorted(missing)}")
+
+    sessions = sessions_df.copy()
+    sessions["completion_status"] = sessions["completion_status"].astype(str).str.upper()
+    sessions = sessions[sessions["completion_status"].isin({"COMPLETED", "ABANDONED", "FAILED"})]
+    sessions["timestamp"] = pd.to_datetime(sessions["timestamp"], errors="coerce")
+    sessions = sessions.sort_values(["player_id", "timestamp", "game_id"], kind="stable")
+    if sessions.empty:
+        raise ValueError("No completed or abandoned gameplay sessions are available for training.")
+
     rows = []
-    diff_map = {"Easy": 1, "Medium": 2, "Hard": 3, "Expert": 4}
-    
-    # Calculate player aggregates for context
-    player_stats = sessions_df.groupby("player_id").agg({
-        "completion_status": lambda s: np.mean(s == "COMPLETED"),
-        "duration": "mean",
-        "accuracy": "mean"
-    }).to_dict(orient="index")
+    difficulty_map = {"EASY": 1, "MEDIUM": 2, "HARD": 3, "EXPERT": 4}
+    history_by_player: Dict[Any, list[dict[str, Any]]] = {}
 
-    for _, session in sessions_df.iterrows():
-        p_id = session["player_id"]
-        p_stat = player_stats.get(p_id, {"completion_status": 0.7, "duration": 500, "accuracy": 0.85})
-        
-        hist_comp = p_stat["completion_status"]
-        if hist_comp >= 0.85:
-            skill_num = 3  # Advanced / Expert
-        elif hist_comp >= 0.65:
-            skill_num = 2  # Intermediate
-        else:
-            skill_num = 1  # Beginner
+    for _, session in sessions.iterrows():
+        player_id = session["player_id"]
+        history = history_by_player.setdefault(player_id, [])
+        prior_completed = [item for item in history if item["completed"]]
+        historical_completion_rate = (
+            len(prior_completed) / len(history) if history else 0.5
+        )
+        average_solving_time = (
+            sum(item["duration"] for item in history) / len(history) if history else 450.0
+        )
+        recent_sessions = history[-5:]
+        recent_accuracy = (
+            sum(item["accuracy"] for item in recent_sessions) / len(recent_sessions)
+            if recent_sessions else 0.88
+        )
+        current_streak = 0
+        for item in reversed(history):
+            if not item["completed"]:
+                break
+            current_streak += 1
 
-        diff_str = str(session["difficulty"]).capitalize()
-        diff_num = diff_map.get(diff_str, 2)
-        is_completed = 1 if session["completion_status"] == "COMPLETED" else 0
+        difficulty_numeric = difficulty_map.get(
+            str(session["difficulty"]).strip().upper(), 2
+        )
+        target_completed = int(session["completion_status"] == "COMPLETED")
+        skill_numeric = (
+            4 if historical_completion_rate >= 0.90 and recent_accuracy >= 0.95
+            else 3 if historical_completion_rate >= 0.75 and recent_accuracy >= 0.88
+            else 2 if historical_completion_rate >= 0.50 and recent_accuracy >= 0.75
+            else 1
+        )
 
-        # Snapshot at 60% game duration
-        duration = session["duration"]
-        progress = 0.60 if is_completed else np.random.uniform(0.20, 0.55)
-        elapsed_ratio = progress * (1.0 if is_completed else np.random.uniform(1.1, 1.6))
-        
-        mistakes = session["mistakes"]
-        hints = session["hints"]
-        streak = max(0, int(np.random.poisson(2 if is_completed else 0.5)))
-        
-        rows.append({
-            "skill_level_numeric": float(skill_num),
-            "difficulty_numeric": float(diff_num),
-            "historical_completion_rate": round(float(hist_comp), 4),
-            "average_solving_time": round(float(p_stat["duration"]), 1),
-            "recent_accuracy": round(float(session["accuracy"]), 4),
-            "hints_used": float(hints),
-            "mistakes_made": float(mistakes),
-            "current_streak": float(streak),
-            "current_progress": round(float(progress), 4),
-            "elapsed_time_ratio": round(float(elapsed_ratio), 4),
-            "puzzle_complexity_estimate": float(diff_num * 1.5 + np.random.uniform(0.8, 1.2)),
-            "target_completed": is_completed
+        for progress in (0.25, 0.50, 0.75):
+            rows.append({
+                "game_id": session["game_id"],
+                "player_id": player_id,
+                "skill_level_numeric": float(skill_numeric),
+                "difficulty_numeric": float(difficulty_numeric),
+                "historical_completion_rate": round(historical_completion_rate, 4),
+                "average_solving_time": round(float(average_solving_time), 1),
+                "recent_accuracy": round(float(recent_accuracy), 4),
+                "current_streak": float(current_streak),
+                "current_progress": progress,
+                "elapsed_time_ratio": round(
+                    progress * average_solving_time / max(60.0, 300.0 * difficulty_numeric),
+                    4,
+                ),
+                "puzzle_complexity_estimate": float(difficulty_numeric * 1.5),
+                "target_completed": target_completed,
+            })
+
+        history.append({
+            "completed": target_completed == 1,
+            "duration": max(0.0, float(session["duration"])),
+            "accuracy": min(1.0, max(0.0, float(session["accuracy"]))),
         })
 
     return pd.DataFrame(rows)
@@ -110,18 +141,54 @@ def train_and_evaluate_completion(random_state=42) -> Dict[str, Any]:
         raise FileNotFoundError(f"Session data not found at {SESSIONS_PATH}")
 
     df_sessions = pd.read_csv(SESSIONS_PATH)
+    df_sessions["game_id"] = "bootstrap:" + df_sessions["game_id"].astype(str)
+    df_sessions["player_id"] = "bootstrap:" + df_sessions["player_id"].astype(str)
+    application_sessions = 0
+
+    if os.path.exists(APP_SESSIONS_PATH):
+        df_application = pd.read_csv(APP_SESSIONS_PATH)
+        required_columns = set(df_sessions.columns)
+        missing = required_columns.difference(df_application.columns)
+        if missing:
+            raise ValueError(f"Application gameplay data is missing columns: {sorted(missing)}")
+
+        df_application["game_id"] = df_application["game_id"].astype(str)
+        bootstrap_ids = set(df_sessions["game_id"].str.removeprefix("bootstrap:"))
+        df_application = df_application[
+            ~df_application["game_id"].isin(bootstrap_ids)
+        ].copy()
+        application_sessions = len(df_application)
+        if application_sessions:
+            df_application["game_id"] = "application:" + df_application["game_id"]
+            df_application["player_id"] = "application:" + df_application["player_id"].astype(str)
+            df_sessions = pd.concat([df_sessions, df_application], ignore_index=True)
+
     df = generate_completion_training_dataset(df_sessions)
 
     X = df[COMPLETION_FEATURE_COLUMNS]
     y = df["target_completed"].values
+    groups = df["player_id"].values
+    if len(set(y)) < 2 or len(set(groups)) < 3:
+        raise ValueError("Completion training requires both outcomes and at least three distinct players.")
 
-    # 70% Train, 15% Validation, 15% Test
-    X_train, X_temp, y_train, y_temp = train_test_split(
-        X, y, test_size=0.30, random_state=random_state, stratify=y
+    # Keep every session and checkpoint for a player in exactly one split.
+    first_split = GroupShuffleSplit(n_splits=1, test_size=0.15, random_state=random_state)
+    train_val_idx, test_idx = next(first_split.split(X, y, groups))
+    remaining_groups = groups[train_val_idx]
+    second_split = GroupShuffleSplit(n_splits=1, test_size=0.1765, random_state=random_state)
+    train_idx, val_idx = next(
+        second_split.split(X.iloc[train_val_idx], y[train_val_idx], remaining_groups)
     )
-    X_val, X_test, y_val, y_test = train_test_split(
-        X_temp, y_temp, test_size=0.50, random_state=random_state, stratify=y_temp
-    )
+    train_idx = train_val_idx[train_idx]
+    val_idx = train_val_idx[val_idx]
+
+    X_train, X_val, X_test = X.iloc[train_idx], X.iloc[val_idx], X.iloc[test_idx]
+    y_train, y_val, y_test = y[train_idx], y[val_idx], y[test_idx]
+    if any(len(set(labels)) < 2 for labels in (y_train, y_val, y_test)):
+        raise ValueError(
+            "Player-grouped train/validation/test split must contain both completion outcomes. "
+            "Collect more gameplay sessions across players and retry."
+        )
 
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -192,7 +259,7 @@ def train_and_evaluate_completion(random_state=42) -> Dict[str, Any]:
     test_prec = float(precision_score(y_test, y_test_pred, average="weighted", zero_division=0))
     test_rec = float(recall_score(y_test, y_test_pred, average="weighted", zero_division=0))
     test_f1 = float(f1_score(y_test, y_test_pred, average="weighted", zero_division=0))
-    test_auc = float(roc_auc_score(y_test, y_test_probs)) if len(np.unique(y_test)) > 1 else 1.0
+    test_auc = float(roc_auc_score(y_test, y_test_probs))
 
     cm = confusion_matrix(y_test, y_test_pred)
 
@@ -223,11 +290,19 @@ def train_and_evaluate_completion(random_state=42) -> Dict[str, Any]:
     metadata = {
         "model_type": "puzzle_completion",
         "algorithm": best_name,
-        "version": "v1.0",
+        "version": "v2.0",
         "trained_at": datetime.datetime.now().isoformat(),
+        "uses_scaler": bool(winner_scaled),
         "dataset_samples": len(df),
+        "dataset_sessions": int(df["game_id"].nunique()),
+        "dataset_players": int(df["player_id"].nunique()),
+        "application_sessions": application_sessions,
+        "training_sources": ["ml/data/raw/player_gameplay_sessions.csv"]
+        + (["ml/data/application/player_gameplay.csv"] if application_sessions else []),
         "features": COMPLETION_FEATURE_COLUMNS,
         "classes": ["ABANDONED_OR_FAILED", "COMPLETED"],
+        "evaluation_split": "70/15/15 player-grouped",
+        "checkpoint_method": "standardized progress stages from session summaries",
         "model_comparison": comparison_results,
         "validation_f1_weighted": round(best_val_f1, 4),
         "test_metrics": {

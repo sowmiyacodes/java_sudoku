@@ -28,7 +28,7 @@ public class MLPredictionService {
     private final MLPredictionLogRepository logRepository;
     private final ObjectMapper objectMapper;
 
-    @Value("${ml.api.url:http://localhost:8001}")
+    @Value("${ml.api.url:http://localhost:8000}")
     private String mlApiUrl;
 
     public MLPredictionService(
@@ -115,12 +115,54 @@ public class MLPredictionService {
             log.warn("FastAPI completion prediction failed: {}. Falling back.", ex.getMessage());
         }
 
+        double progress = boundedValue(payload.get("current_progress"), 0.5, 0.0, 1.0);
+        double historicalRate = boundedValue(payload.get("historical_completion_rate"), 0.5, 0.0, 1.0);
+        double mistakes = Math.max(0.0, numericValue(payload.get("mistakes_made"), 0.0));
+        double hints = Math.max(0.0, numericValue(payload.get("hints_used"), 0.0));
+        double elapsed = Math.max(0.0, numericValue(payload.get("elapsed_time"), 0.0));
+        double expectedSeconds = switch (String.valueOf(payload.getOrDefault("difficulty", "MEDIUM")).toUpperCase(Locale.ROOT)) {
+            case "EASY" -> 300.0;
+            case "HARD" -> 900.0;
+            case "EXPERT" -> 1200.0;
+            default -> 600.0;
+        };
+        double overduePenalty = Math.min(0.20, Math.max(0.0, elapsed / expectedSeconds - 1.0) * 0.10);
+        double probability = Math.max(0.05, Math.min(0.95,
+                0.15 + (0.40 * historicalRate) + (0.40 * progress)
+                        - Math.min(0.20, mistakes * 0.025)
+                        - Math.min(0.10, hints * 0.02)
+                        - overduePenalty));
+
         return Map.of(
-                "completion_probability", 0.75,
-                "predicted_completion", true,
-                "confidence", 0.65,
-                "top_factors", List.of("Baseline completion heuristic")
+                "completion_probability", probability,
+                "predicted_completion", probability >= 0.5,
+                "confidence", Math.abs(probability - 0.5) * 2.0,
+                "model_version", "heuristic-fallback",
+                "top_factors", List.of(
+                        "Historical completion rate",
+                        "Current puzzle progress",
+                        "Mistakes, hints, and elapsed time"
+                )
         );
+    }
+
+    private double numericValue(Object value, double fallback) {
+        if (value instanceof Number number) {
+            return number.doubleValue();
+        }
+        if (value instanceof String text) {
+            try {
+                return Double.parseDouble(text);
+            } catch (NumberFormatException ignored) {
+                return fallback;
+            }
+        }
+        return fallback;
+    }
+
+    private double boundedValue(Object value, double fallback, double min, double max) {
+        double parsed = numericValue(value, fallback);
+        return Double.isFinite(parsed) ? Math.max(min, Math.min(max, parsed)) : fallback;
     }
 
     /**

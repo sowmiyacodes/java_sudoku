@@ -1,17 +1,22 @@
 {
   "model_type": "puzzle_completion",
-  "algorithm": "Decision Tree",
-  "version": "v1.0",
-  "trained_at": "2026-09-29T21:57:53.300824",
-  "dataset_samples": 16385,
+  "algorithm": "Gradient Boosting",
+  "version": "v2.0",
+  "trained_at": "2026-09-30T08:31:45.197134",
+  "uses_scaler": false,
+  "dataset_samples": 49155,
+  "dataset_sessions": 16385,
+  "dataset_players": 600,
+  "application_sessions": 0,
+  "training_sources": [
+    "ml/data/raw/player_gameplay_sessions.csv"
+  ],
   "features": [
     "skill_level_numeric",
     "difficulty_numeric",
     "historical_completion_rate",
     "average_solving_time",
     "recent_accuracy",
-    "hints_used",
-    "mistakes_made",
     "current_streak",
     "current_progress",
     "elapsed_time_ratio",
@@ -21,52 +26,52 @@
     "ABANDONED_OR_FAILED",
     "COMPLETED"
   ],
+  "evaluation_split": "70/15/15 player-grouped",
+  "checkpoint_method": "standardized progress stages from session summaries",
   "model_comparison": {
     "Logistic Regression": {
-      "val_accuracy": 0.9992,
-      "val_f1_weighted": 0.9992,
-      "val_precision": 0.9992,
-      "val_recall": 0.9992
+      "val_accuracy": 0.8285,
+      "val_f1_weighted": 0.8031,
+      "val_precision": 0.8066,
+      "val_recall": 0.8285
     },
     "Decision Tree": {
-      "val_accuracy": 1.0,
-      "val_f1_weighted": 1.0,
-      "val_precision": 1.0,
-      "val_recall": 1.0
+      "val_accuracy": 0.8384,
+      "val_f1_weighted": 0.8099,
+      "val_precision": 0.8234,
+      "val_recall": 0.8384
     },
     "Random Forest": {
-      "val_accuracy": 1.0,
-      "val_f1_weighted": 1.0,
-      "val_precision": 1.0,
-      "val_recall": 1.0
+      "val_accuracy": 0.8368,
+      "val_f1_weighted": 0.8107,
+      "val_precision": 0.8195,
+      "val_recall": 0.8368
     },
     "Gradient Boosting": {
-      "val_accuracy": 1.0,
-      "val_f1_weighted": 1.0,
-      "val_precision": 1.0,
-      "val_recall": 1.0
+      "val_accuracy": 0.8411,
+      "val_f1_weighted": 0.8151,
+      "val_precision": 0.8265,
+      "val_recall": 0.8411
     }
   },
-  "validation_f1_weighted": 1.0,
+  "validation_f1_weighted": 0.8151,
   "test_metrics": {
-    "accuracy": 1.0,
-    "precision_weighted": 1.0,
-    "recall_weighted": 1.0,
-    "f1_weighted": 1.0,
-    "roc_auc": 1.0
+    "accuracy": 0.8406,
+    "precision_weighted": 0.8228,
+    "recall_weighted": 0.8406,
+    "f1_weighted": 0.8164,
+    "roc_auc": 0.8148
   },
   "feature_importances": {
-    "current_progress": 1.0,
-    "skill_level_numeric": 0.0,
-    "difficulty_numeric": 0.0,
-    "historical_completion_rate": 0.0,
-    "average_solving_time": 0.0,
-    "recent_accuracy": 0.0,
-    "hints_used": 0.0,
-    "mistakes_made": 0.0,
-    "current_streak": 0.0,
-    "elapsed_time_ratio": 0.0,
-    "puzzle_complexity_estimate": 0.0
+    "recent_accuracy": 0.5084,
+    "puzzle_complexity_estimate": 0.2376,
+    "difficulty_numeric": 0.1298,
+    "average_solving_time": 0.0714,
+    "historical_completion_rate": 0.0342,
+    "current_streak": 0.0173,
+    "elapsed_time_ratio": 0.0009,
+    "skill_level_numeric": 0.0003,
+    "current_progress": 0.0
   },
   "artifacts": {
     "model_path": "ml/models/completion_model.pkl",

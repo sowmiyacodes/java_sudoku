@@ -12,11 +12,16 @@ import { PublicProfilePage } from './pages/PublicProfilePage';
 import { MultiplayerLandingPage } from './pages/MultiplayerLandingPage';
 import { RoomWaitingPage } from './pages/RoomWaitingPage';
 import { MultiplayerGamePage } from './pages/MultiplayerGamePage';
-import { PlayerDashboardPage } from './pages/PlayerDashboardPage';
 import { GameHistoryPage } from './pages/GameHistoryPage';
 import { StatisticsPage } from './pages/StatisticsPage';
 import { AdminMLDashboardPage } from './pages/AdminMLDashboardPage';
 import { PuzzleManagementPage } from './pages/PuzzleManagementPage';
+import { AdminDashboardOverviewPage } from './pages/AdminDashboardOverviewPage';
+import { AdminPlayersPage } from './pages/AdminPlayersPage';
+import { AdminGamesPage } from './pages/AdminGamesPage';
+import { AdminHintsPage } from './pages/AdminHintsPage';
+import { AdminAnalyticsPage } from './pages/AdminAnalyticsPage';
+import { AdminAuditLogsPage } from './pages/AdminAuditLogsPage';
 import { PlayerSidebar, type DashboardView } from './components/PlayerSidebar';
 import { useAuth } from './context/useAuth';
 import { Loader2, LogIn, Trophy, UserRound, Users, LayoutDashboard } from 'lucide-react';
@@ -33,7 +38,19 @@ type AppView =
   | 'ROOM_WAITING'
   | 'ROOM_GAME'
   | 'DASHBOARD'
+  | 'PLAYERS'
+  | 'PUZZLES'
+  | 'GAMES'
+  | 'HINTS'
+  | 'ANALYTICS'
   | 'ADMIN_ML'
+  | 'ML_DATASETS'
+  | 'ML_MODELS'
+  | 'ML_EXPERIMENTS'
+  | 'ML_PREDICTIONS'
+  | 'ML_TRAINING'
+  | 'AUDIT_LOGS'
+  | 'SETTINGS'
   | 'GAME_HISTORY'
   | 'STATISTICS'
   | 'PUZZLE_MANAGEMENT';
@@ -72,31 +89,34 @@ export const App: React.FC = () => {
     setView('LANDING');
   };
 
-  const isAnalyticsView = ['DASHBOARD', 'PROFILE', 'GAME_HISTORY', 'STATISTICS', 'ADMIN_ML', 'PUZZLE_MANAGEMENT'].includes(view);
-
-  const mapToDashboardView = (v: AppView): DashboardView => {
-    if (v === 'ADMIN_ML') return 'ADMIN_ML';
-    if (v === 'PUZZLE_MANAGEMENT') return 'PUZZLES';
-    if (v === 'GAME_HISTORY') return 'GAMES';
-    if (v === 'STATISTICS') return 'STATISTICS';
-    if (v === 'PROFILE') return 'PROFILE';
-    return 'DASHBOARD';
-  };
+  const isAnalyticsView = [
+    'DASHBOARD',
+    'PLAYERS',
+    'PUZZLES',
+    'GAMES',
+    'HINTS',
+    'ANALYTICS',
+    'ADMIN_ML',
+    'ML_DATASETS',
+    'ML_MODELS',
+    'ML_EXPERIMENTS',
+    'ML_PREDICTIONS',
+    'ML_TRAINING',
+    'AUDIT_LOGS',
+    'SETTINGS',
+    'PROFILE',
+    'GAME_HISTORY',
+    'STATISTICS',
+    'PUZZLE_MANAGEMENT'
+  ].includes(view);
 
   const handleSidebarNavigate = (dest: DashboardView) => {
-    if (dest === 'DASHBOARD') setView('DASHBOARD');
-    else if (dest === 'ADMIN_ML') setView('ADMIN_ML');
-    else if (dest === 'PUZZLES') setView('PUZZLE_MANAGEMENT');
-    else if (dest === 'PROFILE') setView('PROFILE');
-    else if (dest === 'GAMES') setView('GAME_HISTORY');
-    else if (dest === 'STATISTICS') setView('STATISTICS');
-    else if (dest === 'RECOMMENDATIONS') setView('DASHBOARD');
-    else if (dest === 'LEADERBOARD') setView('LEADERBOARD');
+    setView(dest as AppView);
   };
 
   return (
     <div className="relative min-h-screen bg-[#02040a] text-slate-100 font-sans flex flex-col justify-center selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Background Subtle Moving Starfield Canvas */}
+      {/* Background Canvas */}
       <StarBackground />
 
       {view === 'LANDING' && !isAuthLoading && (
@@ -126,7 +146,7 @@ export const App: React.FC = () => {
                 className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-950/40 px-3 py-2 text-sm font-bold text-cyan-200 backdrop-blur transition hover:border-cyan-300 hover:bg-cyan-900/50 cursor-pointer shadow-sm"
               >
                 <LayoutDashboard size={16} aria-hidden="true" />
-                <span>Dashboard</span>
+                <span>Admin Console</span>
               </button>
               <button
                 type="button"
@@ -178,15 +198,15 @@ export const App: React.FC = () => {
       {isLoading && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center">
           <Loader2 className="w-10 h-10 text-cyan-400 animate-spin mb-3" />
-          <p className="text-sm font-semibold tracking-wider text-cyan-200">Initializing Cosmic Grid...</p>
+          <p className="text-sm font-semibold tracking-wider text-cyan-200">Processing Request...</p>
         </div>
       )}
 
-      {/* Analytics Suite Layout (Dashboard, History, Stats) */}
+      {/* Admin Suite Layout */}
       {isAnalyticsView && user && (
-        <div className="relative z-10 flex flex-col md:flex-row min-h-screen w-full">
+        <div className="relative z-10 flex flex-col md:flex-row min-h-screen w-full bg-slate-50 text-slate-900">
           <PlayerSidebar
-            currentView={mapToDashboardView(view)}
+            currentView={view as DashboardView}
             onNavigate={handleSidebarNavigate}
             onPlaySudoku={() => setView('LANDING')}
             onLogout={async () => {
@@ -195,45 +215,51 @@ export const App: React.FC = () => {
             }}
           />
 
-          <main className="flex-1 flex flex-col min-w-0 bg-[#02040a]/90 backdrop-blur-sm overflow-hidden">
-            {view === 'DASHBOARD' && (
-              <PlayerDashboardPage
-                onStartGame={handleStartNewGame}
-                onViewHistory={() => setView('GAME_HISTORY')}
-                onViewStats={() => setView('STATISTICS')}
+          <main className="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50">
+            {view === 'DASHBOARD' && <AdminDashboardOverviewPage onNavigate={(v) => setView(v as AppView)} />}
+            {view === 'PLAYERS' && <AdminPlayersPage />}
+            {view === 'PUZZLES' && (
+              <PuzzleManagementPage
+                onPlayPuzzle={async (puzzleId) => {
+                  setIsLoading(true);
+                  setErrorMessage(null);
+                  try {
+                    const game = await GameApi.createGame({ puzzleId });
+                    setCurrentGame(game);
+                    setView('GAME');
+                  } catch (err) {
+                    setErrorMessage(err instanceof Error ? err.message : 'Unable to launch this puzzle.');
+                  } finally {
+                    setIsLoading(false);
+                  }
+                }}
               />
             )}
-
-            {view === 'ADMIN_ML' && <AdminMLDashboardPage />}
-
-            {view === 'PUZZLE_MANAGEMENT' && <PuzzleManagementPage onPlayPuzzle={async (puzzleId) => {
-              setIsLoading(true);
-              setErrorMessage(null);
-              try {
-                const game = await GameApi.createGame({ puzzleId });
-                setCurrentGame(game);
-                setView('GAME');
-              } catch (err) {
-                setErrorMessage(err instanceof Error ? err.message : 'Unable to launch this puzzle.');
-              } finally {
-                setIsLoading(false);
-              }
-            }} />}
-
+            {view === 'GAMES' && <AdminGamesPage />}
+            {view === 'HINTS' && <AdminHintsPage />}
+            {view === 'ANALYTICS' && <AdminAnalyticsPage />}
+            {[
+              'ADMIN_ML',
+              'ML_DATASETS',
+              'ML_MODELS',
+              'ML_EXPERIMENTS',
+              'ML_PREDICTIONS',
+              'ML_TRAINING'
+            ].includes(view) && <AdminMLDashboardPage />}
+            {view === 'AUDIT_LOGS' && <AdminAuditLogsPage />}
+            {view === 'SETTINGS' && <AdminDashboardOverviewPage onNavigate={(v) => setView(v as AppView)} />}
             {view === 'PROFILE' && (
               <div className="p-4 sm:p-6 lg:p-8 flex-1 overflow-y-auto">
                 <ProfilePage onBack={() => setView('DASHBOARD')} onLogout={() => setView('LANDING')} />
               </div>
             )}
-
             {view === 'GAME_HISTORY' && <GameHistoryPage />}
-
             {view === 'STATISTICS' && <StatisticsPage />}
           </main>
         </div>
       )}
 
-      {/* Views */}
+      {/* Direct Views */}
       {view === 'LANDING' && (
         <LandingPage
           onStartNewGame={handleStartNewGame}

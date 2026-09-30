@@ -1,5 +1,3602 @@
 [
   {
+    "id": "275fd6bd",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:48.738001",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.9772727272727273,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (97% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "765beb24",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:46.638366",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.9545454545454546,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (95% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "8d73e472",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:45.417784",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.9318181818181818,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (93% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "7349dcc1",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:38.084760",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.9090909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (90% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "62da1ed4",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:36.464406",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.8863636363636364,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (88% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "77dee56a",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:34.456597",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.8636363636363636,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (86% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "a584b7b9",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:33.854753",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.8409090909090909,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (84% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "416f3cc2",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:31.188405",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.8181818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (81% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "d126630e",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:29.508418",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.7954545454545454,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (79% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "0bb60b41",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:27.058776",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.7727272727272727,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (77% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "87bb50c1",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:25.164678",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.75,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (75% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "e134616b",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:21.650281",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.7272727272727273,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (72% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "4e8c2b91",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:20.808816",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.7045454545454546,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (70% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "3e7e2f92",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:19.614417",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.6818181818181818,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (68% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "381b6fcc",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:18.994667",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.6590909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (65% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "0c326acb",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:16.056739",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.6363636363636364,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (63% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c0017b1f",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:15.691624",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.6136363636363636,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (61% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "5ef9f2bc",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:13.753197",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.5909090909090909,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (59% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "7b64fae8",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:10.397780",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.5681818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (56% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "03138df2",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:07.474300",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.5454545454545454,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (54% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "a2ea2b53",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:06.544745",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.5227272727272727,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (52% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "bc39cf21",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:04.554090",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.5,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (50% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "75b8a64b",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:03.569657",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.4772727272727273,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (47% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "d3b20fa6",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:15:02.014430",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 3,
+      "current_streak": 0,
+      "current_progress": 0.45454545454545453,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (45% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "80735f45",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:59.745785",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.45454545454545453,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (45% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "9391a2d9",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:56.309114",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.4318181818181818,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (43% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "57d77a0e",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:55.611737",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.4090909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (40% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "d2c8e395",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:53.460245",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.38636363636363635,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (38% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "056b6e6d",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:51.010889",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.36363636363636365,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (36% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "eafaf511",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:48.859024",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.3409090909090909,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (34% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "20543d07",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:45.818662",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.3181818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (31% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "71db81da",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:45.275865",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.29545454545454547,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (29% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "4800010b",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:44.704454",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.2727272727272727,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (27% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "07b9ede6",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:44.118142",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.25,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (25% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "811dc2ea",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:39.325110",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.22727272727272727,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (22% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "7052f8ce",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:34.204099",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.20454545454545456,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (20% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "881adc27",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:33.500189",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.18181818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (18% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "cbccf351",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:32.622314",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.1590909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (15% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "a606541c",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:31.664293",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.13636363636363635,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (13% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "223e73f6",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:30.888831",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.11363636363636363,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (11% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "eaab7180",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:30.036427",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.09090909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (9% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "a19c77eb",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:28.136417",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.06818181818181818,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (6% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "b39278d2",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:26.660543",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.045454545454545456,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (4% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "1428990e",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:17.150401",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 2,
+      "current_streak": 0,
+      "current_progress": 0.022727272727272728,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (2% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "f2d9e8ce",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:14.345929",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 0,
+      "current_progress": 0.022727272727272728,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (2% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "57fc001a",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:13.364409",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 0,
+      "current_progress": 0.022727272727272728,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (2% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "3d9a2748",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:13.229814",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 0,
+      "current_progress": 0.022727272727272728,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (2% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "6617b252",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:14:13.085122",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.022727272727272728,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (2% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c5781cc1",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:49.469655",
+    "input": {
+      "skill_level": "INTERMEDIATE",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.5,
+      "average_solving_time": 51.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (50%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c373c547",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:49.398722",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "Medium",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.88,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.87,
+      "predicted_completion": true,
+      "confidence": 0.74,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "3b81e116",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:41.241610",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.9696969696969697,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (96% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "4dd36454",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:39.070097",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.9393939393939394,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (93% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "72da505a",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:37.583005",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.9090909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (90% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "f0509a91",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:36.197186",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.8787878787878788,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (87% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "3b609605",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:34.269612",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.8484848484848485,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (84% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c3ab3681",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:33.606565",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.8181818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (81% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "9083f0c5",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:31.436619",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.7878787878787878,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (78% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "df7ffb61",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:30.532557",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.7575757575757576,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (75% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "1665442e",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:28.570755",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.7272727272727273,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (72% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "6dc350ee",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:24.980322",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.696969696969697,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (69% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "5328953c",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:24.600684",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.6666666666666666,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (66% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "6fc24a9d",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:22.647711",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.6363636363636364,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (63% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "14246d40",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:22.236015",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.6060606060606061,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "22bf42b6",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:11.969665",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.5757575757575758,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (57% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "5bb54c6b",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:10.858264",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.5454545454545454,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (54% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "73b4b5ce",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:09.969615",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.5151515151515151,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (51% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "bcce9cad",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:06.700152",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.48484848484848486,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (48% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "2f0bbec1",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:06.055671",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.45454545454545453,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (45% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "7236cc98",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:13:03.938678",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.42424242424242425,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (42% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "0ff4ebc3",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:59.364407",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.3939393939393939,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (39% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "19dbfef5",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:57.289638",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.36363636363636365,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (36% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "5e7f264c",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:55.456776",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.3333333333333333,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (33% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "cd69f253",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:53.424543",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.30303030303030304,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (30% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "ea719a46",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:50.609132",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.2727272727272727,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (27% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "d73cb0e8",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:47.704109",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.24242424242424243,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (24% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "0f56a62c",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:47.121267",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.21212121212121213,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (21% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "b1e50b33",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:45.639777",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.18181818181818182,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (18% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "16323753",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:44.932667",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.15151515151515152,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (15% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "9f4acc6a",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:44.466935",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.12121212121212122,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (12% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "c475a756",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:40.647788",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.09090909090909091,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (9% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "a999e0a2",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:39.388752",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.06060606060606061,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (6% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "f8eb6c8a",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:38.240806",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.030303030303030304,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (3% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "8c715fd6",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:12:20.164472",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "861f7500",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:11:50.169817",
+    "input": {
+      "skill_level": "BEGINNER",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.0,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 1.0,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (0%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "4d4b0c45",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T07:11:50.089966",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "Easy",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.88,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 0,
+      "current_progress": 0.0,
+      "elapsed_time": 0.0
+    },
+    "output": {
+      "completion_probability": 0.94,
+      "predicted_completion": true,
+      "confidence": 0.88,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (0% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.00x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "749dcb7c",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T07:04:08.222612",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "ea83fdd8",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:44:43.519639",
+    "input": {
+      "games_played": 1,
+      "completion_rate": 1.0,
+      "average_time": 400.0,
+      "average_score": 0.0,
+      "average_accuracy": 1.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 1.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "BEGINNER",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (100%)",
+          "Important model factor: Exceptional input accuracy (100%)",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "4e797b5e",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:44:43.465508",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "68ee2b07",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:44:42.586427",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "9c366a8e",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:44:42.470043",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "0db20ad7",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:44:33.184852",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.95,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 2,
+      "current_progress": 0.6,
+      "elapsed_time": 240.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.40x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "4458f96b",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:44:33.157817",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 1,
+      "elapsed_time": 180.0,
+      "previous_hints_used": 0,
+      "stuck_duration_seconds": 45.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (45s)",
+        "Important model factor: Prior hints utilized (0)"
+      ]
+    }
+  },
+  {
+    "id": "d6169972",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:44:33.060236",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "021aa3f2",
+    "type": "RECOMMENDATION",
+    "timestamp": "2026-09-30T06:44:13.206530",
+    "input": {
+      "completion_rate": 0.85,
+      "average_accuracy": 0.9,
+      "average_mistakes": 1.2,
+      "average_hints": 0.4,
+      "easy_completion_rate": 1.0,
+      "medium_completion_rate": 0.9,
+      "hard_completion_rate": 0.65,
+      "recent_accuracy": 0.92,
+      "recent_error_rate": 0.06,
+      "average_moves_per_minute": 8.0
+    },
+    "output": {
+      "recommended_difficulty": "MEDIUM",
+      "recommended_reason": "Your recent accuracy and consistent completion demonstrate readiness for intermediate tactical puzzles.",
+      "confidence": 0.92,
+      "top_factors": [
+        "Important model factor: Medium mission mastery (90%)",
+        "Important model factor: Recent session precision (92%)",
+        "Important model factor: Controlled mistake rate (1.2 per game)"
+      ]
+    }
+  },
+  {
+    "id": "d6d46173",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:44:13.186595",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 2,
+      "elapsed_time": 300.0,
+      "previous_hints_used": 1,
+      "stuck_duration_seconds": 120.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (120s)",
+        "Important model factor: Prior hints utilized (1)"
+      ]
+    }
+  },
+  {
+    "id": "5a4082a9",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:44:13.150427",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.88,
+      "average_solving_time": 320.0,
+      "recent_accuracy": 0.94,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 4,
+      "current_progress": 0.65,
+      "elapsed_time": 180.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (88%)",
+        "Current puzzle progression (65% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.30x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "426674c2",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:44:13.132544",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.79,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "bb4e4b41",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:44:13.114234",
+    "input": {
+      "games_played": 15,
+      "completion_rate": 0.95,
+      "average_time": 250.0,
+      "average_score": 850.0,
+      "average_accuracy": 0.96,
+      "average_mistakes": 0.4,
+      "average_hints": 0.1,
+      "average_undos": 0.2,
+      "average_moves": 45.0,
+      "hard_completion_rate": 0.9,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 1.0,
+      "recent_accuracy": 0.98,
+      "recent_error_rate": 0.02,
+      "average_moves_per_minute": 10.5
+    },
+    "output": {
+      "skill_level": "EXPERT",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (95%)",
+          "Important model factor: Exceptional input accuracy (96%)",
+          "Important model factor: Demonstrated Hard difficulty competence",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "338085de",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:40:37.266026",
+    "input": {
+      "games_played": 1,
+      "completion_rate": 1.0,
+      "average_time": 400.0,
+      "average_score": 0.0,
+      "average_accuracy": 1.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 1.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "BEGINNER",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (100%)",
+          "Important model factor: Exceptional input accuracy (100%)",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "0a2d9b8e",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:40:37.210821",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "2ff5dda6",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:40:35.564687",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "ce7958c6",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:40:35.369802",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "d160aa85",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:40:23.915852",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.95,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 2,
+      "current_progress": 0.6,
+      "elapsed_time": 240.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.40x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "9c3a37a3",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:40:23.885070",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 1,
+      "elapsed_time": 180.0,
+      "previous_hints_used": 0,
+      "stuck_duration_seconds": 45.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (45s)",
+        "Important model factor: Prior hints utilized (0)"
+      ]
+    }
+  },
+  {
+    "id": "8af60f5d",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:40:23.780974",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "399b67b1",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:38:36.598965",
+    "input": {
+      "games_played": 1,
+      "completion_rate": 1.0,
+      "average_time": 400.0,
+      "average_score": 0.0,
+      "average_accuracy": 1.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 1.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "BEGINNER",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (100%)",
+          "Important model factor: Exceptional input accuracy (100%)",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "4b5a0219",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:38:36.526594",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "46dad35b",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:38:35.389055",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "f68eefc9",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:38:35.262756",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "75effe88",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:38:25.375360",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.95,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 2,
+      "current_progress": 0.6,
+      "elapsed_time": 240.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.40x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "3648136a",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:38:25.345477",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 1,
+      "elapsed_time": 180.0,
+      "previous_hints_used": 0,
+      "stuck_duration_seconds": 45.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (45s)",
+        "Important model factor: Prior hints utilized (0)"
+      ]
+    }
+  },
+  {
+    "id": "9fd760c8",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:38:25.249495",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "c75487d8",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:35:46.645721",
+    "input": {
+      "games_played": 1,
+      "completion_rate": 1.0,
+      "average_time": 400.0,
+      "average_score": 0.0,
+      "average_accuracy": 1.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 1.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "BEGINNER",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (100%)",
+          "Important model factor: Exceptional input accuracy (100%)",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "b1218c64",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:35:46.570702",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "87e55e91",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:35:45.878077",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "9fcb3438",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:35:45.776061",
+    "input": {
+      "games_played": 0,
+      "completion_rate": 0.0,
+      "average_time": 0.0,
+      "average_score": 0.0,
+      "average_accuracy": 0.0,
+      "average_mistakes": 0.0,
+      "average_hints": 0.0,
+      "average_undos": 0.0,
+      "average_moves": 0.0,
+      "hard_completion_rate": 0.0,
+      "medium_completion_rate": 0.0,
+      "easy_completion_rate": 0.0,
+      "recent_accuracy": 0.0,
+      "recent_error_rate": 0.0,
+      "average_moves_per_minute": 0.0
+    },
+    "output": {
+      "skill_level": "INTERMEDIATE",
+      "confidence": 0.98,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
+    "id": "6c69d3f0",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:35:36.198886",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.75,
+      "average_solving_time": 450.0,
+      "recent_accuracy": 0.95,
+      "hints_used": 0,
+      "mistakes_made": 0,
+      "current_streak": 2,
+      "current_progress": 0.6,
+      "elapsed_time": 240.0
+    },
+    "output": {
+      "completion_probability": 0.97,
+      "predicted_completion": true,
+      "confidence": 0.94,
+      "top_factors": [
+        "Player historical completion rate (75%)",
+        "Current puzzle progression (60% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.40x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "822ccbf3",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:35:36.155323",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 1,
+      "elapsed_time": 180.0,
+      "previous_hints_used": 0,
+      "stuck_duration_seconds": 45.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (45s)",
+        "Important model factor: Prior hints utilized (0)"
+      ]
+    }
+  },
+  {
+    "id": "cdd587a9",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:35:35.877025",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "9b9cc6be",
+    "type": "RECOMMENDATION",
+    "timestamp": "2026-09-30T06:31:49.534961",
+    "input": {
+      "completion_rate": 0.85,
+      "average_accuracy": 0.9,
+      "average_mistakes": 1.2,
+      "average_hints": 0.4,
+      "easy_completion_rate": 1.0,
+      "medium_completion_rate": 0.9,
+      "hard_completion_rate": 0.65,
+      "recent_accuracy": 0.92,
+      "recent_error_rate": 0.06,
+      "average_moves_per_minute": 8.0
+    },
+    "output": {
+      "recommended_difficulty": "MEDIUM",
+      "recommended_reason": "Your recent accuracy and consistent completion demonstrate readiness for intermediate tactical puzzles.",
+      "confidence": 0.92,
+      "top_factors": [
+        "Important model factor: Medium mission mastery (90%)",
+        "Important model factor: Recent session precision (92%)",
+        "Important model factor: Controlled mistake rate (1.2 per game)"
+      ]
+    }
+  },
+  {
+    "id": "0b5146c6",
+    "type": "HINT",
+    "timestamp": "2026-09-30T06:31:49.516698",
+    "input": {
+      "player_skill": "INTERMEDIATE",
+      "difficulty": "HARD",
+      "current_progress": 0.4,
+      "mistakes_count": 2,
+      "elapsed_time": 300.0,
+      "previous_hints_used": 1,
+      "stuck_duration_seconds": 120.0
+    },
+    "output": {
+      "hint_type": "ROW",
+      "confidence": 0.82,
+      "reason": "Inspect the most constrained row to find missing numbers.",
+      "target_cell": null,
+      "technique": null,
+      "top_factors": [
+        "Important model factor: Player experience tier (INTERMEDIATE)",
+        "Important model factor: Hesitation duration (120s)",
+        "Important model factor: Prior hints utilized (1)"
+      ]
+    }
+  },
+  {
+    "id": "52079457",
+    "type": "COMPLETION",
+    "timestamp": "2026-09-30T06:31:49.475469",
+    "input": {
+      "skill_level": "ADVANCED",
+      "difficulty": "MEDIUM",
+      "historical_completion_rate": 0.88,
+      "average_solving_time": 320.0,
+      "recent_accuracy": 0.94,
+      "hints_used": 0,
+      "mistakes_made": 1,
+      "current_streak": 4,
+      "current_progress": 0.65,
+      "elapsed_time": 180.0
+    },
+    "output": {
+      "completion_probability": 0.98,
+      "predicted_completion": true,
+      "confidence": 0.96,
+      "top_factors": [
+        "Player historical completion rate (88%)",
+        "Current puzzle progression (65% filled)",
+        "Elapsed time relative to the expected difficulty baseline (0.30x)"
+      ],
+      "model_version": "v2.0"
+    }
+  },
+  {
+    "id": "b04fbe9f",
+    "type": "DIFFICULTY",
+    "timestamp": "2026-09-30T06:31:49.457591",
+    "input": {
+      "clues": 30.0
+    },
+    "output": {
+      "difficulty": "EASY",
+      "confidence": 0.64,
+      "model_version": "v1.0",
+      "extracted_features": {
+        "clue_count": 30.0,
+        "empty_cell_count": 51.0,
+        "clue_density": 0.3704,
+        "candidate_count": 153.0,
+        "min_candidates_per_cell": 1.0,
+        "max_candidates_per_cell": 6.0,
+        "avg_candidates_per_cell": 3.0,
+        "single_candidate_cells": 4.0,
+        "box_clue_variance": 2.0,
+        "row_clue_variance": 0.2222,
+        "col_clue_variance": 2.6667,
+        "symmetry_score": 1.0,
+        "branching_factor_estimate": 17.0
+      },
+      "top_factors": [
+        "Important model factor: Clue count is 30 givens (51 empty cells)",
+        "Important model factor: Branching complexity index of 17.00",
+        "Important model factor: Available naked singles (4)"
+      ]
+    }
+  },
+  {
+    "id": "4ec6f76d",
+    "type": "SKILL",
+    "timestamp": "2026-09-30T06:31:49.439856",
+    "input": {
+      "games_played": 15,
+      "completion_rate": 0.95,
+      "average_time": 250.0,
+      "average_score": 850.0,
+      "average_accuracy": 0.96,
+      "average_mistakes": 0.4,
+      "average_hints": 0.1,
+      "average_undos": 0.2,
+      "average_moves": 45.0,
+      "hard_completion_rate": 0.9,
+      "medium_completion_rate": 1.0,
+      "easy_completion_rate": 1.0,
+      "recent_accuracy": 0.98,
+      "recent_error_rate": 0.02,
+      "average_moves_per_minute": 10.5
+    },
+    "output": {
+      "skill_level": "EXPERT",
+      "confidence": 1.0,
+      "model_version": "v1",
+      "explanation": {
+        "top_factors": [
+          "Important model factor: High solve consistency (95%)",
+          "Important model factor: Exceptional input accuracy (96%)",
+          "Important model factor: Demonstrated Hard difficulty competence",
+          "Important model factor: Independent solving with minimal hint usage"
+        ],
+        "feature_contributions": null
+      }
+    }
+  },
+  {
     "id": "a751384d",
     "type": "DIFFICULTY",
     "timestamp": "2026-09-30T00:06:37.116471",

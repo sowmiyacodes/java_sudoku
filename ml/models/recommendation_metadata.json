@@ -2,7 +2,7 @@
   "model_type": "personalized_recommendation",
   "algorithm": "Gradient Boosting",
   "version": "v1.0",
-  "trained_at": "2026-09-29T21:57:55.878643",
+  "trained_at": "2026-09-30T08:31:58.798331",
   "dataset_samples": 600,
   "features": [
     "completion_rate",

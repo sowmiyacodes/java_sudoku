@@ -2,8 +2,8 @@
   "model_type": "puzzle_difficulty",
   "algorithm": "Logistic Regression",
   "version": "v1.0",
-  "trained_at": "2026-09-30T00:04:53.598695",
-  "dataset_samples": 1208,
+  "trained_at": "2026-09-30T08:32:56.467750",
+  "dataset_samples": 2744,
   "features": [
     "clue_count",
     "empty_cell_count",
@@ -44,56 +44,56 @@
   },
   "model_comparison": {
     "Logistic Regression": {
-      "val_accuracy": 0.3978,
-      "val_f1_weighted": 0.3955,
-      "val_f1_macro": 0.3908,
-      "val_precision": 0.3945,
-      "val_recall": 0.3978
+      "val_accuracy": 0.3835,
+      "val_f1_weighted": 0.3766,
+      "val_f1_macro": 0.3742,
+      "val_precision": 0.3852,
+      "val_recall": 0.3835
     },
     "Decision Tree": {
-      "val_accuracy": 0.3481,
-      "val_f1_weighted": 0.3401,
-      "val_f1_macro": 0.336,
-      "val_precision": 0.3404,
-      "val_recall": 0.3481
+      "val_accuracy": 0.3592,
+      "val_f1_weighted": 0.3269,
+      "val_f1_macro": 0.3281,
+      "val_precision": 0.3498,
+      "val_recall": 0.3592
     },
     "Random Forest": {
-      "val_accuracy": 0.3923,
-      "val_f1_weighted": 0.3954,
-      "val_f1_macro": 0.385,
-      "val_precision": 0.3998,
-      "val_recall": 0.3923
+      "val_accuracy": 0.3495,
+      "val_f1_weighted": 0.3488,
+      "val_f1_macro": 0.347,
+      "val_precision": 0.3504,
+      "val_recall": 0.3495
     },
     "Gradient Boosting": {
-      "val_accuracy": 0.3757,
-      "val_f1_weighted": 0.3696,
-      "val_f1_macro": 0.3626,
-      "val_precision": 0.3673,
-      "val_recall": 0.3757
+      "val_accuracy": 0.3568,
+      "val_f1_weighted": 0.3597,
+      "val_f1_macro": 0.3581,
+      "val_precision": 0.3651,
+      "val_recall": 0.3568
     }
   },
-  "validation_f1_weighted": 0.3955,
+  "validation_f1_weighted": 0.3766,
   "test_metrics": {
-    "accuracy": 0.4121,
-    "precision_weighted": 0.4142,
-    "recall_weighted": 0.4121,
-    "f1_weighted": 0.4072,
-    "f1_macro": 0.3994
+    "accuracy": 0.3762,
+    "precision_weighted": 0.3722,
+    "recall_weighted": 0.3762,
+    "f1_weighted": 0.3701,
+    "f1_macro": 0.3671
   },
   "feature_importances": {
-    "avg_candidates_per_cell": 0.6304,
-    "single_candidate_cells": 0.5709,
-    "candidate_count": 0.4897,
-    "branching_factor_estimate": 0.459,
-    "clue_count": 0.1178,
-    "empty_cell_count": 0.1178,
-    "clue_density": 0.1164,
-    "min_candidates_per_cell": 0.1099,
-    "max_candidates_per_cell": 0.0976,
-    "symmetry_score": 0.0855,
-    "box_clue_variance": 0.0776,
-    "col_clue_variance": 0.067,
-    "row_clue_variance": 0.0528
+    "avg_candidates_per_cell": 1.1775,
+    "candidate_count": 1.1724,
+    "single_candidate_cells": 0.6858,
+    "branching_factor_estimate": 0.4826,
+    "clue_density": 0.1704,
+    "clue_count": 0.1701,
+    "empty_cell_count": 0.1701,
+    "min_candidates_per_cell": 0.1246,
+    "box_clue_variance": 0.0888,
+    "symmetry_score": 0.0649,
+    "max_candidates_per_cell": 0.0642,
+    "row_clue_variance": 0.0499,
+    "col_clue_variance": 0.0184
   },
   "artifacts": {
     "model_path": "ml/models/difficulty_model.pkl",

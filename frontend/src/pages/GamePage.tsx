@@ -10,6 +10,8 @@ import { PauseOverlay } from '../components/PauseOverlay';
 import { CompletionModal } from '../components/CompletionModal';
 import { HintHistoryModal } from '../components/HintHistoryModal';
 import { PerformanceAnalysisModal } from '../components/PerformanceAnalysisModal';
+import { CompletionPredictionCard } from '../components/CompletionPredictionCard';
+import { useCompletionPrediction } from '../hooks/useCompletionPrediction';
 import { AlertTriangle, CheckCircle, Info } from 'lucide-react';
 
 interface GamePageProps {
@@ -34,6 +36,11 @@ export const GamePage: React.FC<GamePageProps> = ({
   const [hintLevel, setHintLevel] = useState(1);
   const [analysis, setAnalysis] = useState<PerformanceAnalysis | null>(null);
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
+  const completionPrediction = useCompletionPrediction(
+    game,
+    hintHistory.length,
+    game.status === 'IN_PROGRESS',
+  );
 
   const loadHintHistory = useCallback(async (gameId: number) => {
     try {
@@ -349,6 +356,8 @@ export const GamePage: React.FC<GamePageProps> = ({
             isPaused={game.status === 'PAUSED'}
             isCompleted={game.status === 'COMPLETED'}
           />
+
+          <CompletionPredictionCard {...completionPrediction} />
           
           {/* Active Hint UI */}
           {activeHint && activeHint.available && (

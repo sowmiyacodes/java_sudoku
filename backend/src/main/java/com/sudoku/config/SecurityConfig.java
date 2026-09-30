@@ -66,7 +66,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
                         .csrfTokenRepository(csrfTokenRepository)
-                        .ignoringRequestMatchers("/h2-console/**"))
+                        .ignoringRequestMatchers("/h2-console/**", "/api/admin/**", "/api/gameplay-data/**"))
                 .securityContext(context -> context
                         .securityContextRepository(securityContextRepository)
                         .requireExplicitSave(true))

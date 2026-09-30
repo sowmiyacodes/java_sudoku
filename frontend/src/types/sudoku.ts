@@ -86,6 +86,27 @@ export interface SubmitResponse {
   incorrectCells: { row: number; column: number }[];
 }
 
+export interface CompletionPredictionRequest {
+  skill_level: SkillLevel;
+  difficulty: string;
+  historical_completion_rate: number;
+  average_solving_time: number;
+  recent_accuracy: number;
+  hints_used: number;
+  mistakes_made: number;
+  current_streak: number;
+  current_progress: number;
+  elapsed_time: number;
+}
+
+export interface CompletionPrediction {
+  completion_probability: number;
+  predicted_completion: boolean;
+  confidence: number;
+  top_factors: string[];
+  model_version: string;
+}
+
 export interface CreateGameParams {
   difficulty?: Difficulty;
   puzzleId?: string;
@@ -223,4 +244,3 @@ export interface MLOverviewData {
   last_training_date: string;
   status: string;
 }
-

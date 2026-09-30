@@ -13,7 +13,7 @@ Built with **React 19 + TypeScript** (frontend), **Spring Boot 3.3 + Java 21** (
 * **5 Production Machine Learning Models:**
   1. **Player Skill Classifier:** 12 gameplay features; Logistic Regression / Decision Tree; predicts `BEGINNER`, `INTERMEDIATE`, `ADVANCED`, `EXPERT`.
   2. **Puzzle Difficulty Classifier:** 13 board topology features (clues, candidates, branch factor, symmetry); Logistic Regression across 2,744 IEEE + benchmark puzzles.
-  3. **In-Game Puzzle Completion Estimator:** 11 snapshot features; Decision Tree; predicts real-time completion probability and outcome.
+  3. **In-Game Puzzle Completion Estimator:** 9 leakage-safe historical and live-progress features; Gradient Boosting; player-grouped evaluation (test Accuracy 0.8406, weighted F1 0.8164, ROC-AUC 0.8148).
   4. **Pedagogical Hint Recommender:** 8 scaffolding features; Gradient Boosting; predicts guidance level (`CELL`, `ROW`, `COLUMN`, `REGION`, `TECHNIQUE`, `NEXT_MOVE`).
   5. **Dynamic Personalized Puzzle Recommender:** 10 trajectory features (frustration index, boredom index, momentum); Gradient Boosting; recommends optimal next difficulty.
 * **Configurable Data Pipeline:** Kaggle dataset ingestion with automatic offline benchmark fallback, dataset manifest (`dataset_manifest.json`), and preprocessing audit report (`preprocessing_report.json`).
@@ -31,6 +31,12 @@ Built with **React 19 + TypeScript** (frontend), **Spring Boot 3.3 + Java 21** (
   - `GET /api/players/{playerId}/statistics`: Returns performance stats including `currentStreak` (consecutive recent wins) and `bestStreak` (all-time historical record).
   - Pre-Hibernate H2 database schema migration (`PlayerStatisticsSchemaMigration`).
 * **Frontend Profile Display:** Integrated metric cards for current and best win streaks alongside 18 gameplay metrics.
+
+### Member 3: Gameplay & Multiplayer (Completed)
+* **Gameplay:** Shared game engine and UI cover moves, score, timer, hints, undo/redo, replay/history, completion checking, and player/game analytics.
+* **Multiplayer:** Authenticated room create/join/start/leave, shared Sudoku board, hints, results, and leaderboard scoring. The React clients poll room state and submit version-checked moves; Spring serializes mutations with a room lock and rejects stale board versions.
+* **Completion intelligence:** Solo and multiplayer screens submit live board progress and game telemetry to the FastAPI completion predictor. Player history is loaded for authenticated players; a clearly identified heuristic is returned if the ML service is offline.
+* **Gameplay dataset:** `ml/data/download_dataset.py` can collect real persisted sessions from `/api/analytics/gameplay-export` using `SUDOKU_GAMEPLAY_EXPORT_URL`; the completion trainer merges new application game IDs with the bootstrap dataset.
 
 ---
 
@@ -104,10 +110,11 @@ python training/train_completion.py
 python training/train_hint.py
 python training/train_recommendation.py
 
-# Launch FastAPI microservice on port 8000:
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+# Launch FastAPI microservice on port 8000 from the repo root:
+python -m uvicorn ml.api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 * ML Microservice interactive API Docs: **http://localhost:8000/docs**
+* Run this from the repository root so Python can resolve the `ml` package.
 
 ### Step 2: Start the Spring Boot Backend
 In your second terminal:
