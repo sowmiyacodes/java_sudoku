@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { AdminMlApi } from '../services/adminMlApi';
 import type { MLModelRecord, MLExperimentRecord, MLOverviewData } from '../types/sudoku';
+import './AdminMLDashboardPage.css';
 
 export const AdminMLDashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'models' | 'training' | 'datasets' | 'experiments' | 'predictions'>('overview');
@@ -104,7 +105,7 @@ export const AdminMLDashboardPage: React.FC = () => {
 
   if (isLoading && !overview) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-12 text-blue-600 bg-slate-50">
+      <div className="admin-ml-dashboard flex-1 flex flex-col items-center justify-center p-12 text-blue-600 bg-slate-50">
         <Loader2 className="w-10 h-10 animate-spin mb-3 text-blue-500" />
         <p className="text-sm font-semibold text-slate-700">Connecting to ML Microservice & Registry...</p>
       </div>
@@ -112,7 +113,7 @@ export const AdminMLDashboardPage: React.FC = () => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto bg-slate-50 text-slate-800 p-6 lg:p-8 space-y-6">
+    <div className="admin-ml-dashboard flex-1 overflow-y-auto bg-slate-50 text-slate-800 p-6 lg:p-8 space-y-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-5">
         <div>

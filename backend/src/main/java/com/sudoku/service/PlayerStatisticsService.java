@@ -23,19 +23,22 @@ public class PlayerStatisticsService {
     private final HintHistoryRepository hintHistoryRepository;
     private final LeaderboardScoreRepository leaderboardScoreRepository;
     private final PlayerStatisticsRepository playerStatisticsRepository;
+    private final UserRepository userRepository;
 
     public PlayerStatisticsService(
             GameRepository gameRepository,
             MoveRepository moveRepository,
             HintHistoryRepository hintHistoryRepository,
             LeaderboardScoreRepository leaderboardScoreRepository,
-            PlayerStatisticsRepository playerStatisticsRepository
+            PlayerStatisticsRepository playerStatisticsRepository,
+            UserRepository userRepository
     ) {
         this.gameRepository = gameRepository;
         this.moveRepository = moveRepository;
         this.hintHistoryRepository = hintHistoryRepository;
         this.leaderboardScoreRepository = leaderboardScoreRepository;
         this.playerStatisticsRepository = playerStatisticsRepository;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -47,6 +50,7 @@ public class PlayerStatisticsService {
             return null;
         }
 
+        userRepository.findByIdForUpdate(userId);
         List<Game> games = gameRepository.findByUserIdOrderByCreatedAtDesc(userId);
         PlayerStatistics stats = playerStatisticsRepository.findByUserId(userId)
                 .orElse(new PlayerStatistics(userId));

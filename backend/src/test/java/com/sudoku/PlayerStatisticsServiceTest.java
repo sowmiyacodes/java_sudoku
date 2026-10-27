@@ -55,6 +55,9 @@ public class PlayerStatisticsServiceTest {
         assertEquals(0.0, stats.getCompletionRate());
         assertEquals(0, stats.getAverageTime());
 
+        PlayerStatistics recalculated = statisticsService.calculateAndSaveStatistics(testUser.getId());
+        assertEquals(stats.getId(), recalculated.getId());
+
         PlayerStatisticsDto dto = statisticsService.getPlayerStatistics(testUser.getId());
         assertEquals(0, dto.gamesPlayed());
         assertEquals(0.0, dto.completionRate());

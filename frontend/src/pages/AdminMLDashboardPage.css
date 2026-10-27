@@ -1,0 +1,175 @@
+.admin-ml-dashboard {
+  --ml-bg: #0b1120;
+  --ml-surface: #111a2b;
+  --ml-surface-raised: #172338;
+  --ml-border: #29364b;
+  --ml-text: #e2e8f0;
+  --ml-muted: #9aaac0;
+  background-color: var(--ml-bg);
+  color: var(--ml-text);
+}
+
+.admin-ml-dashboard .bg-white,
+.admin-ml-dashboard [class~="bg-slate-50"] {
+  background-color: var(--ml-surface);
+}
+
+.admin-ml-dashboard [class~="bg-slate-50/50"],
+.admin-ml-dashboard [class~="bg-slate-50/80"] {
+  background-color: var(--ml-surface-raised);
+}
+
+.admin-ml-dashboard [class~="bg-slate-100"],
+.admin-ml-dashboard [class~="bg-slate-200"] {
+  background-color: #202d42;
+}
+
+.admin-ml-dashboard [class~="bg-blue-50"],
+.admin-ml-dashboard [class~="bg-blue-50/70"],
+.admin-ml-dashboard [class~="bg-blue-100"] {
+  background-color: #142946;
+}
+
+.admin-ml-dashboard [class~="bg-emerald-50"],
+.admin-ml-dashboard [class~="bg-emerald-100"] {
+  background-color: #123329;
+}
+
+.admin-ml-dashboard [class~="bg-rose-50"],
+.admin-ml-dashboard [class~="bg-rose-100"] {
+  background-color: #351f2a;
+}
+
+.admin-ml-dashboard [class~="bg-indigo-50"],
+.admin-ml-dashboard [class~="bg-indigo-100"] {
+  background-color: #242545;
+}
+
+.admin-ml-dashboard [class~="bg-amber-50"],
+.admin-ml-dashboard [class~="bg-amber-100"] {
+  background-color: #382d19;
+}
+
+.admin-ml-dashboard [class~="text-slate-900"] {
+  color: #f1f5f9;
+}
+
+.admin-ml-dashboard [class~="text-slate-800"] {
+  color: #e2e8f0;
+}
+
+.admin-ml-dashboard [class~="text-slate-700"] {
+  color: #cbd5e1;
+}
+
+.admin-ml-dashboard [class~="text-slate-600"] {
+  color: #b6c3d4;
+}
+
+.admin-ml-dashboard [class~="text-slate-500"] {
+  color: var(--ml-muted);
+}
+
+.admin-ml-dashboard [class~="text-slate-400"] {
+  color: #8596ad;
+}
+
+.admin-ml-dashboard [class~="text-blue-900"],
+.admin-ml-dashboard [class~="text-blue-800"],
+.admin-ml-dashboard [class~="text-blue-700"] {
+  color: #bfdbfe;
+}
+
+.admin-ml-dashboard [class~="text-blue-600"],
+.admin-ml-dashboard [class~="text-blue-500"] {
+  color: #7db7ff;
+}
+
+.admin-ml-dashboard [class~="text-emerald-900"],
+.admin-ml-dashboard [class~="text-emerald-800"],
+.admin-ml-dashboard [class~="text-emerald-700"],
+.admin-ml-dashboard [class~="text-emerald-600"] {
+  color: #86efc2;
+}
+
+.admin-ml-dashboard [class~="text-rose-900"],
+.admin-ml-dashboard [class~="text-rose-800"],
+.admin-ml-dashboard [class~="text-rose-700"],
+.admin-ml-dashboard [class~="text-rose-600"] {
+  color: #fda4af;
+}
+
+.admin-ml-dashboard [class~="text-indigo-900"],
+.admin-ml-dashboard [class~="text-indigo-800"],
+.admin-ml-dashboard [class~="text-indigo-700"],
+.admin-ml-dashboard [class~="text-indigo-600"] {
+  color: #b7baff;
+}
+
+.admin-ml-dashboard [class~="text-amber-900"],
+.admin-ml-dashboard [class~="text-amber-800"],
+.admin-ml-dashboard [class~="text-amber-700"],
+.admin-ml-dashboard [class~="text-amber-600"] {
+  color: #fcd47c;
+}
+
+.admin-ml-dashboard [class~="border-slate-100"],
+.admin-ml-dashboard [class~="border-slate-200"],
+.admin-ml-dashboard [class~="border-slate-300"] {
+  border-color: var(--ml-border);
+}
+
+.admin-ml-dashboard [class~="divide-slate-100"] > :not(:last-child),
+.admin-ml-dashboard [class~="divide-slate-200"] > :not(:last-child) {
+  border-color: #253248;
+}
+
+.admin-ml-dashboard [class~="border-blue-200"] {
+  border-color: #31547c;
+}
+
+.admin-ml-dashboard [class~="border-emerald-200"] {
+  border-color: #28614e;
+}
+
+.admin-ml-dashboard [class~="border-rose-200"] {
+  border-color: #70404b;
+}
+
+.admin-ml-dashboard [class~="border-indigo-200"] {
+  border-color: #444575;
+}
+
+.admin-ml-dashboard [class~="border-amber-200"] {
+  border-color: #705728;
+}
+
+.admin-ml-dashboard [class~="hover:bg-slate-50"]:hover,
+.admin-ml-dashboard [class~="hover:bg-slate-50/80"]:hover,
+.admin-ml-dashboard [class~="hover:bg-slate-100"]:hover {
+  background-color: #1b2940;
+}
+
+.admin-ml-dashboard [class~="hover:bg-blue-100"]:hover {
+  background-color: #1c3c61;
+}
+
+.admin-ml-dashboard [class~="hover:bg-emerald-100"]:hover {
+  background-color: #184636;
+}
+
+.admin-ml-dashboard select {
+  background-color: var(--ml-surface);
+  color: var(--ml-text);
+}
+
+.admin-ml-dashboard option {
+  background-color: var(--ml-surface);
+  color: var(--ml-text);
+}
+
+.admin-ml-dashboard button:focus-visible,
+.admin-ml-dashboard select:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}

@@ -1,5 +1,252 @@
 [
   {
+    "experiment_id": "EXP-C212D197",
+    "model_type": "puzzle_difficulty",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.3978,
+        "val_f1_weighted": 0.3955,
+        "val_f1_macro": 0.3908,
+        "val_precision": 0.3945,
+        "val_recall": 0.3978
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.3481,
+        "val_f1_weighted": 0.3401,
+        "val_f1_macro": 0.336,
+        "val_precision": 0.3404,
+        "val_recall": 0.3481
+      },
+      "Random Forest": {
+        "val_accuracy": 0.3923,
+        "val_f1_weighted": 0.3954,
+        "val_f1_macro": 0.385,
+        "val_precision": 0.3998,
+        "val_recall": 0.3923
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.3757,
+        "val_f1_weighted": 0.3696,
+        "val_f1_macro": 0.3626,
+        "val_precision": 0.3673,
+        "val_recall": 0.3757
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.4121,
+      "precision_weighted": 0.4142,
+      "recall_weighted": 0.4121,
+      "f1_weighted": 0.4072,
+      "f1_macro": 0.3994
+    },
+    "duration_seconds": 1.0,
+    "timestamp": "2026-09-30T14:34:33.923451",
+    "artifact_paths": {
+      "model_path": "ml/models/difficulty_model.pkl",
+      "scaler_path": "ml/models/difficulty_scaler.pkl",
+      "label_encoder_path": "ml/models/difficulty_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-7E39E2D8",
+    "model_type": "puzzle_difficulty",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.3978,
+        "val_f1_weighted": 0.3955,
+        "val_f1_macro": 0.3908,
+        "val_precision": 0.3945,
+        "val_recall": 0.3978
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.3481,
+        "val_f1_weighted": 0.3401,
+        "val_f1_macro": 0.336,
+        "val_precision": 0.3404,
+        "val_recall": 0.3481
+      },
+      "Random Forest": {
+        "val_accuracy": 0.3923,
+        "val_f1_weighted": 0.3954,
+        "val_f1_macro": 0.385,
+        "val_precision": 0.3998,
+        "val_recall": 0.3923
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.3757,
+        "val_f1_weighted": 0.3696,
+        "val_f1_macro": 0.3626,
+        "val_precision": 0.3673,
+        "val_recall": 0.3757
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.4121,
+      "precision_weighted": 0.4142,
+      "recall_weighted": 0.4121,
+      "f1_weighted": 0.4072,
+      "f1_macro": 0.3994
+    },
+    "duration_seconds": 1.0,
+    "timestamp": "2026-09-30T13:29:29.928644",
+    "artifact_paths": {
+      "model_path": "ml/models/difficulty_model.pkl",
+      "scaler_path": "ml/models/difficulty_scaler.pkl",
+      "label_encoder_path": "ml/models/difficulty_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-62E87A43",
+    "model_type": "puzzle_difficulty",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.3978,
+        "val_f1_weighted": 0.3955,
+        "val_f1_macro": 0.3908,
+        "val_precision": 0.3945,
+        "val_recall": 0.3978
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.3481,
+        "val_f1_weighted": 0.3401,
+        "val_f1_macro": 0.336,
+        "val_precision": 0.3404,
+        "val_recall": 0.3481
+      },
+      "Random Forest": {
+        "val_accuracy": 0.3923,
+        "val_f1_weighted": 0.3954,
+        "val_f1_macro": 0.385,
+        "val_precision": 0.3998,
+        "val_recall": 0.3923
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.3757,
+        "val_f1_weighted": 0.3696,
+        "val_f1_macro": 0.3626,
+        "val_precision": 0.3673,
+        "val_recall": 0.3757
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.4121,
+      "precision_weighted": 0.4142,
+      "recall_weighted": 0.4121,
+      "f1_weighted": 0.4072,
+      "f1_macro": 0.3994
+    },
+    "duration_seconds": 1.0,
+    "timestamp": "2026-09-30T12:10:21.603931",
+    "artifact_paths": {
+      "model_path": "ml/models/difficulty_model.pkl",
+      "scaler_path": "ml/models/difficulty_scaler.pkl",
+      "label_encoder_path": "ml/models/difficulty_label_encoder.pkl"
+    }
+  },
+  {
+    "experiment_id": "EXP-CF9B8A4A",
+    "model_type": "player_skill",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.1",
+    "algorithms_evaluated": [],
+    "validation_scores": {},
+    "test_metrics": {
+      "accuracy": 0.9556,
+      "precision": 0.9568,
+      "recall": 0.9556,
+      "f1_weighted": 0.9554,
+      "f1_macro": 0.9534
+    },
+    "duration_seconds": 1.0,
+    "timestamp": "2026-09-30T12:05:45.616901",
+    "artifact_paths": {}
+  },
+  {
+    "experiment_id": "EXP-253C2E63",
+    "model_type": "puzzle_difficulty",
+    "selected_algorithm": "Logistic Regression",
+    "dataset_version": "1.1.0",
+    "feature_version": "v1.0",
+    "algorithms_evaluated": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "validation_scores": {
+      "Logistic Regression": {
+        "val_accuracy": 0.3835,
+        "val_f1_weighted": 0.3766,
+        "val_f1_macro": 0.3742,
+        "val_precision": 0.3852,
+        "val_recall": 0.3835
+      },
+      "Decision Tree": {
+        "val_accuracy": 0.3592,
+        "val_f1_weighted": 0.3269,
+        "val_f1_macro": 0.3281,
+        "val_precision": 0.3498,
+        "val_recall": 0.3592
+      },
+      "Random Forest": {
+        "val_accuracy": 0.3495,
+        "val_f1_weighted": 0.3488,
+        "val_f1_macro": 0.347,
+        "val_precision": 0.3504,
+        "val_recall": 0.3495
+      },
+      "Gradient Boosting": {
+        "val_accuracy": 0.3568,
+        "val_f1_weighted": 0.3597,
+        "val_f1_macro": 0.3581,
+        "val_precision": 0.3651,
+        "val_recall": 0.3568
+      }
+    },
+    "test_metrics": {
+      "accuracy": 0.3762,
+      "precision_weighted": 0.3722,
+      "recall_weighted": 0.3762,
+      "f1_weighted": 0.3701,
+      "f1_macro": 0.3671
+    },
+    "duration_seconds": 1.0,
+    "timestamp": "2026-09-30T11:55:54.908831",
+    "artifact_paths": {
+      "model_path": "ml/models/difficulty_model.pkl",
+      "scaler_path": "ml/models/difficulty_scaler.pkl",
+      "label_encoder_path": "ml/models/difficulty_label_encoder.pkl"
+    }
+  },
+  {
     "experiment_id": "EXP-E867F108",
     "model_type": "player_skill",
     "selected_algorithm": "Logistic Regression",
